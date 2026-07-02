@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa647f29c48f3c84eb8a53a6595d0bf7, type: 3}
+  m_Name: CountryBackgroundData
+  m_EditorClassIdentifier: 
+  countries:
+  - countryName: Algeria
+    backgroundSprite: {fileID: 21300000, guid: 361eb466b78ce104088cb8e702f961e0, type: 3}
+  - countryName: Argentine
+    backgroundSprite: {fileID: 21300000, guid: a891a727888d5874ab109822226ea2ad, type: 3}
+  - countryName: Australia
+    backgroundSprite: {fileID: 21300000, guid: f8c7ce12209d5074da206ea6dda4105e, type: 3}
+  - countryName: Brezil
+    backgroundSprite: {fileID: 21300000, guid: c93fd6f744d571a47bc36ad7e5b34080, type: 3}
+  - countryName: France
+    backgroundSprite: {fileID: 21300000, guid: d5444e50c3df8f3468d7738be85dac6c, type: 3}
+  - countryName: Germany
+    backgroundSprite: {fileID: 21300000, guid: 0f30b42881036eb4aa285b5e28e9dd48, type: 3}
+  - countryName: Japan
+    backgroundSprite: {fileID: 21300000, guid: 6760b54070f5f2542ac28e9412b721ba, type: 3}
+  - countryName: Niger
+    backgroundSprite: {fileID: 21300000, guid: 004aca1a2a0913448bb1a1b5bb532422, type: 3}
+  - countryName: Roussia
+    backgroundSprite: {fileID: 21300000, guid: fb5ca7dc1c481b34681d7e6cc651a9f6, type: 3}
+  - countryName: USA
+    backgroundSprite: {fileID: 21300000, guid: bc0436de07d69fd44bfb478378f14750, type: 3}

@@ -1,0 +1,2380 @@
+{
+  "countries": [
+    {
+      "countryId": "deu",
+      "countryName": "Germany",
+      "languages": {
+        "ar": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "تقع ألمانيا في قارة أوروبا.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-1-ar"
+            },
+            {
+              "id": 2,
+              "question": "ما هي عاصمة ألمانيا؟",
+              "answers": ["أ) ميونيخ", "ب) برلين", "ج) هامبورغ"],
+              "correctIndex": 1,
+              "audioResource": "voices/de-2-ar"
+            },
+            {
+              "id": 3,
+              "question": "يتكون علم ألمانيا من الأسود والأحمر والأصفر.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-3-ar"
+            },
+            {
+              "id": 4,
+              "question": "ما هي العملة الرسمية لألمانيا؟",
+              "answers": ["أ) اليورو", "ب) الفرنك", "ج) الجنيه"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-4-ar"
+            },
+            {
+              "id": 5,
+              "question": "ألمانيا تشتهر بغابة السوداء (Black Forest).",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-5-ar"
+            },
+            {
+              "id": 6,
+              "question": "من هو العالم الألماني الشهير الذي وضع نظرية النسبية؟",
+              "answers": [
+                "أ) إسحاق نيوتن",
+                "ب) ألبرت أينشتاين",
+                "ج) توماس إديسون"
+              ],
+              "correctIndex": 1,
+              "audioResource": "voices/de-6-ar"
+            },
+            {
+              "id": 7,
+              "question": "قلعة نويشفانشتاين من أشهر المعالم في ألمانيا.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-7-ar"
+            },
+            {
+              "id": 8,
+              "question": "أي نهر مشهور يمر في ألمانيا؟",
+              "answers": ["أ) الراين", "ب) الأمازون", "ج) النيل"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-8-ar"
+            },
+            {
+              "id": 9,
+              "question": "النسر هو أحد رموز ألمانيا الوطنية.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-9-ar"
+            },
+            {
+              "id": 10,
+              "question": "في أي قارة تقع ألمانيا؟",
+              "answers": ["أ) آسيا", "ب) أوروبا", "ج) إفريقيا"],
+              "correctIndex": 1,
+              "audioResource": "voices/de-10-ar"
+            }
+          ]
+        },
+        "en": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "Germany is located in Europe.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-1-en"
+            },
+            {
+              "id": 2,
+              "question": "What is the capital of Germany?",
+              "answers": ["a) Munich", "b) Berlin", "c) Hamburg"],
+              "correctIndex": 1,
+              "audioResource": "voices/de-2-en"
+            },
+            {
+              "id": 3,
+              "question": "The German flag consists of black, red, and yellow.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-3-en"
+            },
+            {
+              "id": 4,
+              "question": "What is the official currency of Germany?",
+              "answers": ["a) Euro", "b) Franc", "c) Pound"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-4-en"
+            },
+            {
+              "id": 5,
+              "question": "Germany is famous for the Black Forest.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-5-en"
+            },
+            {
+              "id": 6,
+              "question": "Who developed the theory of relativity?",
+              "answers": [
+                "a) Isaac Newton",
+                "b) Albert Einstein",
+                "c) Thomas Edison"
+              ],
+              "correctIndex": 1,
+              "audioResource": "voices/de-6-en"
+            },
+            {
+              "id": 7,
+              "question": "Neuschwanstein Castle is a famous landmark in Germany.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-7-en"
+            },
+            {
+              "id": 8,
+              "question": "Which famous river passes through Germany?",
+              "answers": ["a) Rhine", "b) Amazon", "c) Nile"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-8-en"
+            },
+            {
+              "id": 9,
+              "question": "The eagle is one of Germany's national symbols.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-9-en"
+            },
+            {
+              "id": 10,
+              "question": "In which continent is Germany located?",
+              "answers": ["a) Asia", "b) Europe", "c) Africa"],
+              "correctIndex": 1,
+              "audioResource": "voices/de-10-en"
+            }
+          ]
+        },
+        "fr": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "L'Allemagne est située en Europe.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-1-fr"
+            },
+            {
+              "id": 2,
+              "question": "Quelle est la capitale de l'Allemagne ?",
+              "answers": ["a) Munich", "b) Berlin", "c) Hambourg"],
+              "correctIndex": 1,
+              "audioResource": "voices/de-2-fr"
+            },
+            {
+              "id": 3,
+              "question": "Le drapeau allemand se compose de noir, rouge et jaune.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-3-fr"
+            },
+            {
+              "id": 4,
+              "question": "Quelle est la monnaie officielle de l'Allemagne ?",
+              "answers": ["a) Euro", "b) Franc", "c) Livre"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-4-fr"
+            },
+            {
+              "id": 5,
+              "question": "L'Allemagne est célèbre pour la Forêt-Noire.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-5-fr"
+            },
+            {
+              "id": 6,
+              "question": "Qui est le célèbre scientifique allemand qui a élaboré la théorie de la relativité ?",
+              "answers": [
+                "a) Isaac Newton",
+                "b) Albert Einstein",
+                "c) Thomas Edison"
+              ],
+              "correctIndex": 1,
+              "audioResource": "voices/de-6-fr"
+            },
+            {
+              "id": 7,
+              "question": "Le château de Neuschwanstein est l'un des monuments les plus célèbres d'Allemagne.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-7-fr"
+            },
+            {
+              "id": 8,
+              "question": "Quel fleuve célèbre traverse l'Allemagne ?",
+              "answers": ["a) Rhin", "b) Amazone", "c) Nil"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-8-fr"
+            },
+            {
+              "id": 9,
+              "question": "L'aigle est l'un des symboles nationaux de l'Allemagne.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/de-9-fr"
+            },
+            {
+              "id": 10,
+              "question": "Sur quel continent se trouve l'Allemagne ?",
+              "answers": ["a) Asie", "b) Europe", "c) Afrique"],
+              "correctIndex": 1,
+              "audioResource": "voices/de-10-fr"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "countryId": "jpn",
+      "countryName": "Japan",
+      "languages": {
+        "ar": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "اليابان عبارة عن مجموعة جزر.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-1-ar"
+            },
+            {
+              "id": 2,
+              "question": "ما هي عاصمة اليابان؟",
+              "answers": ["أ) أوساكا", "ب) كيوتو", "ج) طوكيو"],
+              "correctIndex": 2,
+              "audioResource": "voices/jp-2-ar"
+            },
+            {
+              "id": 3,
+              "question": "يوجد في علم اليابان دائرة حمراء تمثل الشمس.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-3-ar"
+            },
+            {
+              "id": 4,
+              "question": "ما هي العملة الرسمية لليابان؟",
+              "answers": ["أ) اليوان", "ب) الين", "ج) الوون"],
+              "correctIndex": 1,
+              "audioResource": "voices/jp-4-ar"
+            },
+            {
+              "id": 5,
+              "question": "جبل فوجي هو أشهر جبل في اليابان.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-5-ar"
+            },
+            {
+              "id": 6,
+              "question": "أي حيوان يُعتبر رمزاً مشهوراً في اليابان؟",
+              "answers": ["أ) الكركي الياباني", "ب) الكنغر", "ج) الجمل"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-6-ar"
+            },
+            {
+              "id": 7,
+              "question": "الساموراي كانوا محاربين مشهورين في تاريخ اليابان.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-7-ar"
+            },
+            {
+              "id": 8,
+              "question": "ما الظاهرة الطبيعية التي تحدث كثيراً في اليابان؟",
+              "answers": [
+                "أ) الزلازل",
+                "ب) العواصف الثلجية فقط",
+                "ج) البراكين الرملية"
+              ],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-8-ar"
+            },
+            {
+              "id": 9,
+              "question": "اليابان استضافت الألعاب الأولمبية في طوكيو.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-9-ar"
+            },
+            {
+              "id": 10,
+              "question": "ما لون الدائرة الموجودة في علم اليابان؟",
+              "answers": ["أ) أزرق", "ب) أحمر", "ج) أخضر"],
+              "correctIndex": 1,
+              "audioResource": "voices/jp-10-ar"
+            }
+          ]
+        },
+        "en": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "Japan consists of a group of islands.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-1-en"
+            },
+            {
+              "id": 2,
+              "question": "What is the capital of Japan?",
+              "answers": ["a) Osaka", "b) Kyoto", "c) Tokyo"],
+              "correctIndex": 2,
+              "audioResource": "voices/jp-2-en"
+            },
+            {
+              "id": 3,
+              "question": "The Japanese flag has a red circle representing the sun.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-3-en"
+            },
+            {
+              "id": 4,
+              "question": "What is the official currency of Japan?",
+              "answers": ["a) Yuan", "b) Yen", "c) Won"],
+              "correctIndex": 1,
+              "audioResource": "voices/jp-4-en"
+            },
+            {
+              "id": 5,
+              "question": "Mount Fuji is the most famous mountain in Japan.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-5-en"
+            },
+            {
+              "id": 6,
+              "question": "Which animal is a famous symbol in Japan?",
+              "answers": ["a) Japanese Crane", "b) Kangaroo", "c) Camel"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-6-en"
+            },
+            {
+              "id": 7,
+              "question": "Samurai were famous warriors in Japanese history.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-7-en"
+            },
+            {
+              "id": 8,
+              "question": "What natural phenomenon occurs frequently in Japan?",
+              "answers": [
+                "a) Earthquakes",
+                "b) Only snowstorms",
+                "c) Sand volcanoes"
+              ],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-8-en"
+            },
+            {
+              "id": 9,
+              "question": "Japan hosted the Olympic Games in Tokyo.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-9-en"
+            },
+            {
+              "id": 10,
+              "question": "What is the color of the circle on the Japanese flag?",
+              "answers": ["a) Blue", "b) Red", "c) Green"],
+              "correctIndex": 1,
+              "audioResource": "voices/jp-10-en"
+            }
+          ]
+        },
+        "fr": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "Le Japon est un groupe d'îles.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-1-fr"
+            },
+            {
+              "id": 2,
+              "question": "Quelle est la capitale du Japon ?",
+              "answers": ["a) Osaka", "b) Kyoto", "c) Tokyo"],
+              "correctIndex": 2,
+              "audioResource": "voices/jp-2-fr"
+            },
+            {
+              "id": 3,
+              "question": "Le drapeau du Japon comporte un cercle rouge représentant le soleil.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-3-fr"
+            },
+            {
+              "id": 4,
+              "question": "Quelle est la monnaie officielle du Japon ?",
+              "answers": ["a) Yuan", "b) Yen", "c) Won"],
+              "correctIndex": 1,
+              "audioResource": "voices/jp-4-fr"
+            },
+            {
+              "id": 5,
+              "question": "Le mont Fuji est la montagne la plus célèbre du Japon.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-5-fr"
+            },
+            {
+              "id": 6,
+              "question": "Quel animal est un symbole célèbre au Japon ?",
+              "answers": ["a) Grue du Japon", "b) Kangourou", "c) Chameau"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-6-fr"
+            },
+            {
+              "id": 7,
+              "question": "Les samouraïs étaient des guerriers célèbres au Japon.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-7-fr"
+            },
+            {
+              "id": 8,
+              "question": "Quel phénomène naturel se produit souvent au Japon ?",
+              "answers": [
+                "a) Séismes",
+                "b) Tempêtes de neige",
+                "c) Volcans de sable"
+              ],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-8-fr"
+            },
+            {
+              "id": 9,
+              "question": "Le Japon a accueilli les Jeux Olympiques à Tokyo.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/jp-9-fr"
+            },
+            {
+              "id": 10,
+              "question": "Quelle est la couleur du cercle sur le drapeau du Japon ?",
+              "answers": ["a) Bleu", "b) Rouge", "c) Vert"],
+              "correctIndex": 1,
+              "audioResource": "voices/jp-10-fr"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "countryId": "fra",
+      "countryName": "France",
+      "languages": {
+        "ar": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "تقع فرنسا في قارة أوروبا.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-1-ar"
+            },
+            {
+              "id": 2,
+              "question": "ما هي عاصمة فرنسا؟",
+              "answers": ["أ) ليون", "ب) باريس", "ج) مرسيليا"],
+              "correctIndex": 1,
+              "audioResource": "voices/fr-2-ar"
+            },
+            {
+              "id": 3,
+              "question": "يتكون علم فرنسا من الأزرق والأبيض والأحمر.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-3-ar"
+            },
+            {
+              "id": 4,
+              "question": "ما هي العملة الرسمية لفرنسا؟",
+              "answers": ["أ) اليورو", "ب) الفرنك الفرنسي", "ج) الدولار"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-4-ar"
+            },
+            {
+              "id": 5,
+              "question": "برج إيفل يقع في باريس.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-5-ar"
+            },
+            {
+              "id": 6,
+              "question": "من هو القائد الفرنسي الشهير الذي أصبح إمبراطوراً؟",
+              "answers": [
+                "أ) نابليون بونابرت",
+                "ب) يوليوس قيصر",
+                "ج) جورج واشنطن"
+              ],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-6-ar"
+            },
+            {
+              "id": 7,
+              "question": "الديك يُعتبر رمزاً وطنياً لفرنسا.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-7-ar"
+            },
+            {
+              "id": 8,
+              "question": "أي سلسلة جبال تقع بين فرنسا وإسبانيا؟",
+              "answers": [
+                "أ) جبال الأنديز",
+                "ب) جبال البرانس",
+                "ج) جبال الروكي"
+              ],
+              "correctIndex": 1,
+              "audioResource": "voices/fr-8-ar"
+            },
+            {
+              "id": 9,
+              "question": "حدثت الثورة الفرنسية سنة 1789.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-9-ar"
+            },
+            {
+              "id": 10,
+              "question": "ما أشهر معلم سياحي في فرنسا؟",
+              "answers": ["أ) برج إيفل", "ب) تاج محل", "ج) سور الصين العظيم"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-10-ar"
+            }
+          ]
+        },
+        "en": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "France is located in Europe.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-1-en"
+            },
+            {
+              "id": 2,
+              "question": "What is the capital of France?",
+              "answers": ["a) Lyon", "b) Paris", "c) Marseille"],
+              "correctIndex": 1,
+              "audioResource": "voices/fr-2-en"
+            },
+            {
+              "id": 3,
+              "question": "The French flag consists of blue, white, and red.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-3-en"
+            },
+            {
+              "id": 4,
+              "question": "What is the official currency of France?",
+              "answers": ["a) Euro", "b) French Franc", "c) Dollar"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-4-en"
+            },
+            {
+              "id": 5,
+              "question": "The Eiffel Tower is located in Paris.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-5-en"
+            },
+            {
+              "id": 6,
+              "question": "Which famous French leader became Emperor?",
+              "answers": [
+                "a) Napoleon Bonaparte",
+                "b) Julius Caesar",
+                "c) George Washington"
+              ],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-6-en"
+            },
+            {
+              "id": 7,
+              "question": "The rooster is considered a national symbol of France.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-7-en"
+            },
+            {
+              "id": 8,
+              "question": "Which mountain range is located between France and Spain?",
+              "answers": ["a) Andes", "b) Pyrenees", "c) Rockies"],
+              "correctIndex": 1,
+              "audioResource": "voices/fr-8-en"
+            },
+            {
+              "id": 9,
+              "question": "The French Revolution took place in 1789.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-9-en"
+            },
+            {
+              "id": 10,
+              "question": "What is the most famous tourist landmark in France?",
+              "answers": ["a) Eiffel Tower", "b) Taj Mahal", "c) Great Wall"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-10-en"
+            }
+          ]
+        },
+        "fr": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "La France est située en Europe.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-1-fr"
+            },
+            {
+              "id": 2,
+              "question": "Quelle est la capitale de la France ?",
+              "answers": ["a) Lyon", "b) Paris", "c) Marseille"],
+              "correctIndex": 1,
+              "audioResource": "voices/fr-2-fr"
+            },
+            {
+              "id": 3,
+              "question": "Le drapeau de la France est bleu, blanc, rouge.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-3-fr"
+            },
+            {
+              "id": 4,
+              "question": "Quelle est la monnaie officielle de la France ?",
+              "answers": ["a) Euro", "b) Franc français", "c) Dollar"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-4-fr"
+            },
+            {
+              "id": 5,
+              "question": "La tour Eiffel est située à Paris.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-5-fr"
+            },
+            {
+              "id": 6,
+              "question": "Quel célèbre dirigeant français est devenu empereur ?",
+              "answers": [
+                "a) Napoléon Bonaparte",
+                "b) Jules César",
+                "c) George Washington"
+              ],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-6-fr"
+            },
+            {
+              "id": 7,
+              "question": "Le coq est un symbole national de la France.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-7-fr"
+            },
+            {
+              "id": 8,
+              "question": "Quelle chaîne de montagnes se situe entre la France et l'Espagne ?",
+              "answers": [
+                "a) Cordillère des Andes",
+                "b) Pyrénées",
+                "c) Montagnes Rocheuses"
+              ],
+              "correctIndex": 1,
+              "audioResource": "voices/fr-8-fr"
+            },
+            {
+              "id": 9,
+              "question": "La Révolution française a eu lieu en 1789.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-9-fr"
+            },
+            {
+              "id": 10,
+              "question": "Quel est le monument touristique le plus célèbre de France ?",
+              "answers": [
+                "a) Tour Eiffel",
+                "b) Taj Mahal",
+                "c) Grande Muraille"
+              ],
+              "correctIndex": 0,
+              "audioResource": "voices/fr-10-fr"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "countryId": "rus",
+      "countryName": "Russia",
+      "languages": {
+        "ar": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "روسيا هي أكبر دولة في العالم من حيث المساحة.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-1-ar"
+            },
+            {
+              "id": 2,
+              "question": "ما هي عاصمة روسيا؟",
+              "answers": ["أ) سانت بطرسبرغ", "ب) موسكو", "ج) قازان"],
+              "correctIndex": 1,
+              "audioResource": "voices/ru-2-ar"
+            },
+            {
+              "id": 3,
+              "question": "يتكون علم روسيا من الأبيض والأزرق والأحمر.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-3-ar"
+            },
+            {
+              "id": 4,
+              "question": "ما هي العملة الرسمية لروسيا؟",
+              "answers": ["أ) الروبل", "ب) اليورو", "ج) الدولار"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-4-ar"
+            },
+            {
+              "id": 5,
+              "question": "بحيرة بايكال في روسيا هي من أعمق بحيرات العالم.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-5-ar"
+            },
+            {
+              "id": 6,
+              "question": "أي حيوان مشهور في روسيا؟",
+              "answers": ["أ) الدب البني", "ب) الكنغر", "ج) الزرافة"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-6-ar"
+            },
+            {
+              "id": 7,
+              "question": "يوري غاغارين كان أول إنسان يسافر إلى الفضاء.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-7-ar"
+            },
+            {
+              "id": 8,
+              "question": "ما السلسلة الجبلية التي تفصل بين أوروبا وآسيا في روسيا؟",
+              "answers": ["أ) جبال الأورال", "ب) جبال الألب", "ج) جبال الأطلس"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-8-ar"
+            },
+            {
+              "id": 9,
+              "question": "روسيا تقع في قارتي أوروبا وآسيا.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-9-ar"
+            },
+            {
+              "id": 10,
+              "question": "ما أشهر مبنى في الساحة الحمراء بموسكو؟",
+              "answers": [
+                "أ) كاتدرائية القديس باسيل",
+                "ب) برج إيفل",
+                "ج) الكولوسيوم"
+              ],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-10-ar"
+            }
+          ]
+        },
+        "en": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "Russia is the largest country in the world by area.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-1-en"
+            },
+            {
+              "id": 2,
+              "question": "What is the capital of Russia?",
+              "answers": ["a) St. Petersburg", "b) Moscow", "c) Kazan"],
+              "correctIndex": 1,
+              "audioResource": "voices/ru-2-en"
+            },
+            {
+              "id": 3,
+              "question": "The Russian flag consists of white, blue, and red.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-3-en"
+            },
+            {
+              "id": 4,
+              "question": "What is the official currency of Russia?",
+              "answers": ["a) Ruble", "b) Euro", "c) Dollar"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-4-en"
+            },
+            {
+              "id": 5,
+              "question": "Lake Baikal is one of the deepest lakes in the world.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-5-en"
+            },
+            {
+              "id": 6,
+              "question": "Which animal is famous in Russia?",
+              "answers": ["a) Brown bear", "b) Kangaroo", "c) Giraffe"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-6-en"
+            },
+            {
+              "id": 7,
+              "question": "Yuri Gagarin was the first human to travel into space.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-7-en"
+            },
+            {
+              "id": 8,
+              "question": "Which mountain range separates Europe and Asia?",
+              "answers": ["a) Urals", "b) Alps", "c) Atlas"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-8-en"
+            },
+            {
+              "id": 9,
+              "question": "Russia is located on the continents of Europe and Asia.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-9-en"
+            },
+            {
+              "id": 10,
+              "question": "What is the most famous building in Red Square?",
+              "answers": [
+                "a) St. Basil's Cathedral",
+                "b) Eiffel Tower",
+                "c) Colosseum"
+              ],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-10-en"
+            }
+          ]
+        },
+        "fr": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "La Russie est le plus grand pays du monde par sa superficie.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-1-fr"
+            },
+            {
+              "id": 2,
+              "question": "Quelle est la capitale de la Russie ?",
+              "answers": ["a) Saint-Pétersbourg", "b) Moscou", "c) Kazan"],
+              "correctIndex": 1,
+              "audioResource": "voices/ru-2-fr"
+            },
+            {
+              "id": 3,
+              "question": "Le drapeau russe est composé de blanc, bleu et rouge.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-3-fr"
+            },
+            {
+              "id": 4,
+              "question": "Quelle est la monnaie officielle de la Russie ?",
+              "answers": ["a) Rouble", "b) Euro", "c) Dollar"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-4-fr"
+            },
+            {
+              "id": 5,
+              "question": "Le lac Baïkal en Russie est l'un des plus profonds du monde.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-5-fr"
+            },
+            {
+              "id": 6,
+              "question": "Quel animal est célèbre en Russie ?",
+              "answers": ["a) Ours brun", "b) Kangourou", "c) Girafe"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-6-fr"
+            },
+            {
+              "id": 7,
+              "question": "Youri Gagarine fut le premier homme dans l'espace.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-7-fr"
+            },
+            {
+              "id": 8,
+              "question": "Quelle chaîne de montagnes sépare l'Europe de l'Asie ?",
+              "answers": ["a) Oural", "b) Alpes", "c) Atlas"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-8-fr"
+            },
+            {
+              "id": 9,
+              "question": "La Russie est située en Europe et en Asie.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-9-fr"
+            },
+            {
+              "id": 10,
+              "question": "Quel est le bâtiment célèbre sur la place Rouge ?",
+              "answers": [
+                "a) Cathédrale Saint-Basile",
+                "b) Tour Eiffel",
+                "c) Colisée"
+              ],
+              "correctIndex": 0,
+              "audioResource": "voices/ru-10-fr"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "countryId": "ner",
+      "countryName": "Niger",
+      "languages": {
+        "ar": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "تقع دولة النيجر في قارة إفريقيا.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-1-ar"
+            },
+            {
+              "id": 2,
+              "question": "ما هي عاصمة النيجر؟",
+              "answers": ["أ) نيامي", "ب) زيندر", "ج) أغاديز"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-2-ar"
+            },
+            {
+              "id": 3,
+              "question": "علم النيجر يحتوي على دائرة برتقالية في الوسط.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-3-ar"
+            },
+            {
+              "id": 4,
+              "question": "ما هي العملة الرسمية للنيجر؟",
+              "answers": ["أ) الدينار", "ب) فرنك CFA", "ج) الدولار"],
+              "correctIndex": 1,
+              "audioResource": "voices/ne-4-ar"
+            },
+            {
+              "id": 5,
+              "question": "جزء كبير من النيجر يقع داخل الصحراء الكبرى.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-5-ar"
+            },
+            {
+              "id": 6,
+              "question": "أي حيوان يعيش في بعض مناطق النيجر؟",
+              "answers": ["أ) الزرافة", "ب) البطريق", "ج) الباندا"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-6-ar"
+            },
+            {
+              "id": 7,
+              "question": "النيجر دولة لا تطل على البحر.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-7-ar"
+            },
+            {
+              "id": 8,
+              "question": "ما هو أشهر نهر يمر في النيجر؟",
+              "answers": ["أ) نهر النيل", "ب) نهر النيجر", "ج) نهر الأمازون"],
+              "correctIndex": 1,
+              "audioResource": "voices/ne-8-ar"
+            },
+            {
+              "id": 9,
+              "question": "الإسلام هو الدين الأكثر انتشاراً في النيجر.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-9-ar"
+            },
+            {
+              "id": 10,
+              "question": "ما لون الدائرة الموجودة في علم النيجر؟",
+              "answers": ["أ) خضراء", "ب) برتقالية", "ج) زرقاء"],
+              "correctIndex": 1,
+              "audioResource": "voices/ne-10-ar"
+            }
+          ]
+        },
+        "en": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "Niger is located in Africa.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-1-en"
+            },
+            {
+              "id": 2,
+              "question": "What is the capital of Niger?",
+              "answers": ["a) Niamey", "b) Zinder", "c) Agadez"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-2-en"
+            },
+            {
+              "id": 3,
+              "question": "The flag of Niger contains an orange circle in the center.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-3-en"
+            },
+            {
+              "id": 4,
+              "question": "What is the official currency of Niger?",
+              "answers": ["a) Dinar", "b) CFA Franc", "c) Dollar"],
+              "correctIndex": 1,
+              "audioResource": "voices/ne-4-en"
+            },
+            {
+              "id": 5,
+              "question": "A large part of Niger is within the Sahara Desert.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-5-en"
+            },
+            {
+              "id": 6,
+              "question": "Which animal lives in some regions of Niger?",
+              "answers": ["a) Giraffe", "b) Penguin", "c) Panda"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-6-en"
+            },
+            {
+              "id": 7,
+              "question": "Niger is a landlocked country.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-7-en"
+            },
+            {
+              "id": 8,
+              "question": "What is the most famous river passing through Niger?",
+              "answers": ["a) Nile", "b) Niger", "c) Amazon"],
+              "correctIndex": 1,
+              "audioResource": "voices/ne-8-en"
+            },
+            {
+              "id": 9,
+              "question": "Islam is the most widespread religion in Niger.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-9-en"
+            },
+            {
+              "id": 10,
+              "question": "What color is the circle on the Niger flag?",
+              "answers": ["a) Green", "b) Orange", "c) Blue"],
+              "correctIndex": 1,
+              "audioResource": "voices/ne-10-en"
+            }
+          ]
+        },
+        "fr": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "Le Niger est situé en Afrique.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-1-fr"
+            },
+            {
+              "id": 2,
+              "question": "Quelle est la capitale du Niger ?",
+              "answers": ["a) Niamey", "b) Zinder", "c) Agadez"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-2-fr"
+            },
+            {
+              "id": 3,
+              "question": "Le drapeau du Niger contient un cercle orange au centre.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-3-fr"
+            },
+            {
+              "id": 4,
+              "question": "Quelle est la monnaie officielle du Niger ?",
+              "answers": ["a) Dinar", "b) Franc CFA", "c) Dollar"],
+              "correctIndex": 1,
+              "audioResource": "voices/ne-4-fr"
+            },
+            {
+              "id": 5,
+              "question": "Une grande partie du Niger est située dans le Sahara.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-5-fr"
+            },
+            {
+              "id": 6,
+              "question": "Quel animal vit dans certaines régions du Niger ?",
+              "answers": ["a) Girafe", "b) Manchot", "c) Panda"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-6-fr"
+            },
+            {
+              "id": 7,
+              "question": "Le Niger est un pays sans accès à la mer.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-7-fr"
+            },
+            {
+              "id": 8,
+              "question": "Quel est le fleuve le plus célèbre traversant le Niger ?",
+              "answers": ["a) Nil", "b) Niger", "c) Amazone"],
+              "correctIndex": 1,
+              "audioResource": "voices/ne-8-fr"
+            },
+            {
+              "id": 9,
+              "question": "L'Islam est la religion la plus répandue au Niger.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ne-9-fr"
+            },
+            {
+              "id": 10,
+              "question": "Quelle est la couleur du cercle sur le drapeau ?",
+              "answers": ["a) Vert", "b) Orange", "c) Bleu"],
+              "correctIndex": 1,
+              "audioResource": "voices/ne-10-fr"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "countryId": "usa",
+      "countryName": "USA",
+      "languages": {
+        "ar": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "الولايات المتحدة تقع في أمريكا الشمالية.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-1-ar"
+            },
+            {
+              "id": 2,
+              "question": "ما هي عاصمة الولايات المتحدة؟",
+              "answers": ["أ) نيويورك", "ب) واشنطن العاصمة", "ج) لوس أنجلوس"],
+              "correctIndex": 1,
+              "audioResource": "voices/us-2-ar"
+            },
+            {
+              "id": 3,
+              "question": "يوجد 50 نجمة في علم الولايات المتحدة.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-3-ar"
+            },
+            {
+              "id": 4,
+              "question": "ما هي العملة الرسمية للولايات المتحدة؟",
+              "answers": ["أ) اليورو", "ب) الدولار الأمريكي", "ج) الجنيه"],
+              "correctIndex": 1,
+              "audioResource": "voices/us-4-ar"
+            },
+            {
+              "id": 5,
+              "question": "تمثال الحرية من أشهر معالم الولايات المتحدة.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-5-ar"
+            },
+            {
+              "id": 6,
+              "question": "من كان أول رئيس للولايات المتحدة؟",
+              "answers": [
+                "أ) أبراهام لينكولن",
+                "ب) جورج واشنطن",
+                "ج) جون كينيدي"
+              ],
+              "correctIndex": 1,
+              "audioResource": "voices/us-6-ar"
+            },
+            {
+              "id": 7,
+              "question": "نسر الرأس الأبيض هو رمز وطني للولايات المتحدة.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-7-ar"
+            },
+            {
+              "id": 8,
+              "question": "ما السلسلة الجبلية الشهيرة في غرب الولايات المتحدة؟",
+              "answers": ["أ) جبال الألب", "ب) جبال الروكي", "ج) جبال الأطلس"],
+              "correctIndex": 1,
+              "audioResource": "voices/us-8-ar"
+            },
+            {
+              "id": 9,
+              "question": "حدث الهبوط على القمر لأول مرة بواسطة رواد فضاء أمريكيين.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-9-ar"
+            },
+            {
+              "id": 10,
+              "question": "أي حيوان يُعتبر الرمز الوطني للولايات المتحدة؟",
+              "answers": ["أ) النسر الأصلع", "ب) الأسد", "ج) الكنغر"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-10-ar"
+            }
+          ]
+        },
+        "en": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "The United States is located in North America.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-1-en"
+            },
+            {
+              "id": 2,
+              "question": "What is the capital of the United States?",
+              "answers": [
+                "a) New York",
+                "b) Washington D.C.",
+                "c) Los Angeles"
+              ],
+              "correctIndex": 1,
+              "audioResource": "voices/us-2-en"
+            },
+            {
+              "id": 3,
+              "question": "There are 50 stars on the US flag.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-3-en"
+            },
+            {
+              "id": 4,
+              "question": "What is the official currency of the United States?",
+              "answers": ["a) Euro", "b) US Dollar", "c) Pound"],
+              "correctIndex": 1,
+              "audioResource": "voices/us-4-en"
+            },
+            {
+              "id": 5,
+              "question": "The Statue of Liberty is a famous landmark.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-5-en"
+            },
+            {
+              "id": 6,
+              "question": "Who was the first president of the United States?",
+              "answers": [
+                "a) Abraham Lincoln",
+                "b) George Washington",
+                "c) John Kennedy"
+              ],
+              "correctIndex": 1,
+              "audioResource": "voices/us-6-en"
+            },
+            {
+              "id": 7,
+              "question": "The bald eagle is a national symbol.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-7-en"
+            },
+            {
+              "id": 8,
+              "question": "What is the famous mountain range in the West?",
+              "answers": ["a) Alps", "b) Rockies", "c) Atlas"],
+              "correctIndex": 1,
+              "audioResource": "voices/us-8-en"
+            },
+            {
+              "id": 9,
+              "question": "The moon landing was first performed by American astronauts.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-9-en"
+            },
+            {
+              "id": 10,
+              "question": "Which animal is the national symbol of the USA?",
+              "answers": ["a) Bald Eagle", "b) Lion", "c) Kangaroo"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-10-en"
+            }
+          ]
+        },
+        "fr": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "Les États-Unis sont situés en Amérique du Nord.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-1-fr"
+            },
+            {
+              "id": 2,
+              "question": "Quelle est la capitale des États-Unis ?",
+              "answers": [
+                "a) New York",
+                "b) Washington D.C.",
+                "c) Los Angeles"
+              ],
+              "correctIndex": 1,
+              "audioResource": "voices/us-2-fr"
+            },
+            {
+              "id": 3,
+              "question": "Il y a 50 étoiles sur le drapeau.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-3-fr"
+            },
+            {
+              "id": 4,
+              "question": "Quelle est la monnaie officielle ?",
+              "answers": ["a) Euro", "b) Dollar américain", "c) Livre"],
+              "correctIndex": 1,
+              "audioResource": "voices/us-4-fr"
+            },
+            {
+              "id": 5,
+              "question": "La statue de la Liberté est un monument célèbre.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-5-fr"
+            },
+            {
+              "id": 6,
+              "question": "Qui fut le premier président des États-Unis ?",
+              "answers": [
+                "a) Abraham Lincoln",
+                "b) George Washington",
+                "c) John Kennedy"
+              ],
+              "correctIndex": 1,
+              "audioResource": "voices/us-6-fr"
+            },
+            {
+              "id": 7,
+              "question": "Le pygargue à tête blanche est un symbole national.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-7-fr"
+            },
+            {
+              "id": 8,
+              "question": "Quelle est la chaîne de montagnes célèbre dans l'ouest ?",
+              "answers": ["a) Alpes", "b) Rocheuses", "c) Atlas"],
+              "correctIndex": 1,
+              "audioResource": "voices/us-8-fr"
+            },
+            {
+              "id": 9,
+              "question": "L'alunissage a été réalisé par des astronautes américains.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-9-fr"
+            },
+            {
+              "id": 10,
+              "question": "Quel animal est le symbole national ?",
+              "answers": ["a) Aigle royal", "b) Lion", "c) Kangourou"],
+              "correctIndex": 0,
+              "audioResource": "voices/us-10-fr"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "countryId": "bra",
+      "countryName": "Brazil",
+      "languages": {
+        "ar": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "البرازيل هي أكبر دولة في أمريكا الجنوبية.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-1-ar"
+            },
+            {
+              "id": 2,
+              "question": "ما هي عاصمة البرازيل؟",
+              "answers": ["أ) ريو دي جانيرو", "ب) برازيليا", "ج) ساو باولو"],
+              "correctIndex": 1,
+              "audioResource": "voices/br-2-ar"
+            },
+            {
+              "id": 3,
+              "question": "علم البرازيل يحتوي على دائرة زرقاء داخل شكل مُعين أصفر.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-3-ar"
+            },
+            {
+              "id": 4,
+              "question": "ما هي العملة الرسمية للبرازيل؟",
+              "answers": ["أ) الريال البرازيلي", "ب) الدولار", "ج) البيزو"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-4-ar"
+            },
+            {
+              "id": 5,
+              "question": "غابة الأمازون تقع جزئياً في البرازيل.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-5-ar"
+            },
+            {
+              "id": 6,
+              "question": "أي نهر من أكبر أنهار العالم يمر بالبرازيل؟",
+              "answers": ["أ) النيل", "ب) الأمازون", "ج) الدانوب"],
+              "correctIndex": 1,
+              "audioResource": "voices/br-6-ar"
+            },
+            {
+              "id": 7,
+              "question": "تمثال المسيح الفادي من أشهر معالم البرازيل.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-7-ar"
+            },
+            {
+              "id": 8,
+              "question": "أي حيوان مشهور في غابات البرازيل؟",
+              "answers": ["أ) الجاغوار", "ب) الدب القطبي", "ج) البطريق"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-8-ar"
+            },
+            {
+              "id": 9,
+              "question": "اللغة الرسمية للبرازيل هي البرتغالية.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-9-ar"
+            },
+            {
+              "id": 10,
+              "question": "ما الحدث العالمي الذي استضافته البرازيل سنة 2014؟",
+              "answers": [
+                "أ) كأس العالم لكرة القدم",
+                "ب) الألعاب الأولمبية الشتوية",
+                "ج) كأس آسيا"
+              ],
+              "correctIndex": 0,
+              "audioResource": "voices/br-10-ar"
+            }
+          ]
+        },
+        "en": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "Brazil is the largest country in South America.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-1-en"
+            },
+            {
+              "id": 2,
+              "question": "What is the capital of Brazil?",
+              "answers": ["a) Rio de Janeiro", "b) Brasilia", "c) Sao Paulo"],
+              "correctIndex": 1,
+              "audioResource": "voices/br-2-en"
+            },
+            {
+              "id": 3,
+              "question": "The flag of Brazil has a blue circle in a yellow diamond.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-3-en"
+            },
+            {
+              "id": 4,
+              "question": "What is the official currency of Brazil?",
+              "answers": ["a) Real", "b) Dollar", "c) Peso"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-4-en"
+            },
+            {
+              "id": 5,
+              "question": "The Amazon rainforest is partially in Brazil.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-5-en"
+            },
+            {
+              "id": 6,
+              "question": "Which large river passes through Brazil?",
+              "answers": ["a) Nile", "b) Amazon", "c) Danube"],
+              "correctIndex": 1,
+              "audioResource": "voices/br-6-en"
+            },
+            {
+              "id": 7,
+              "question": "The Christ the Redeemer statue is a famous landmark.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-7-en"
+            },
+            {
+              "id": 8,
+              "question": "Which animal is famous in the Brazilian forests?",
+              "answers": ["a) Jaguar", "b) Polar bear", "c) Penguin"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-8-en"
+            },
+            {
+              "id": 9,
+              "question": "The official language of Brazil is Portuguese.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-9-en"
+            },
+            {
+              "id": 10,
+              "question": "What global event did Brazil host in 2014?",
+              "answers": ["a) World Cup", "b) Winter Olympics", "c) Asia Cup"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-10-en"
+            }
+          ]
+        },
+        "fr": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "Le Brésil est le plus grand pays d'Amérique du Sud.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-1-fr"
+            },
+            {
+              "id": 2,
+              "question": "Quelle est la capitale du Brésil ?",
+              "answers": ["a) Rio de Janeiro", "b) Brasilia", "c) Sao Paulo"],
+              "correctIndex": 1,
+              "audioResource": "voices/br-2-fr"
+            },
+            {
+              "id": 3,
+              "question": "Le drapeau du Brésil contient un cercle bleu.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-3-fr"
+            },
+            {
+              "id": 4,
+              "question": "Quelle est la monnaie officielle du Brésil ?",
+              "answers": ["a) Réal brésilien", "b) Dollar", "c) Peso"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-4-fr"
+            },
+            {
+              "id": 5,
+              "question": "L'Amazonie se trouve partiellement au Brésil.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-5-fr"
+            },
+            {
+              "id": 6,
+              "question": "Quel grand fleuve traverse le Brésil ?",
+              "answers": ["a) Nil", "b) Amazone", "c) Danube"],
+              "correctIndex": 1,
+              "audioResource": "voices/br-6-fr"
+            },
+            {
+              "id": 7,
+              "question": "Le Christ Rédempteur est un monument célèbre du Brésil.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-7-fr"
+            },
+            {
+              "id": 8,
+              "question": "Quel animal est célèbre dans les forêts brésiliennes ?",
+              "answers": ["a) Jaguar", "b) Ours polaire", "c) Manchot"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-8-fr"
+            },
+            {
+              "id": 9,
+              "question": "La langue officielle du Brésil est le portugais.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/br-9-fr"
+            },
+            {
+              "id": 10,
+              "question": "Quel événement mondial le Brésil a-t-il accueilli en 2014 ?",
+              "answers": [
+                "a) Coupe du monde",
+                "b) JO d'hiver",
+                "c) Coupe d'Asie"
+              ],
+              "correctIndex": 0,
+              "audioResource": "voices/br-10-fr"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "countryId": "dza",
+      "countryName": "Algeria",
+      "languages": {
+        "ar": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "الجزائر هي أكبر دولة في إفريقيا من حيث المساحة.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-1-ar"
+            },
+            {
+              "id": 2,
+              "question": "ما هي عاصمة الجزائر؟",
+              "answers": ["أ) وهران", "ب) قسنطينة", "ج) الجزائر"],
+              "correctIndex": 2,
+              "audioResource": "voices/dz-2-ar"
+            },
+            {
+              "id": 3,
+              "question": "علم الجزائر يحتوي على اللونين الأخضر والأبيض مع نجمة وهلال أحمرين.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-3-ar"
+            },
+            {
+              "id": 4,
+              "question": "ما هي العملة الرسمية للجزائر؟",
+              "answers": ["أ) الدينار الجزائري", "ب) الدرهم", "ج) الريال"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-4-ar"
+            },
+            {
+              "id": 5,
+              "question": "معظم مساحة الجزائر تغطيها الصحراء الكبرى.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-5-ar"
+            },
+            {
+              "id": 6,
+              "question": "أي حيوان يعيش في الصحراء الجزائرية؟",
+              "answers": ["أ) البطريق", "ب) الجمل", "ج) الكنغر"],
+              "correctIndex": 1,
+              "audioResource": "voices/dz-6-ar"
+            },
+            {
+              "id": 7,
+              "question": "الأمير عبد القادر من الشخصيات التاريخية المهمة في الجزائر.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-7-ar"
+            },
+            {
+              "id": 8,
+              "question": "ما المعلم الأثري الشهير الموجود في الجزائر؟",
+              "answers": ["أ) تاج محل", "ب) الكولوسيوم", "ج) تيمقاد"],
+              "correctIndex": 2,
+              "audioResource": "voices/dz-8-ar"
+            },
+            {
+              "id": 9,
+              "question": "الدين الأكثر انتشاراً في الجزائر هو الإسلام.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-9-ar"
+            },
+            {
+              "id": 10,
+              "question": "في أي قارة تقع الجزائر؟",
+              "answers": ["أ) آسيا", "ب) أوروبا", "ج) إفريقيا"],
+              "correctIndex": 2,
+              "audioResource": "voices/dz-10-ar"
+            }
+          ]
+        },
+        "en": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "Algeria is the largest country in Africa by area.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-1-en"
+            },
+            {
+              "id": 2,
+              "question": "What is the capital of Algeria?",
+              "answers": ["a) Oran", "b) Constantine", "c) Algiers"],
+              "correctIndex": 2,
+              "audioResource": "voices/dz-2-en"
+            },
+            {
+              "id": 3,
+              "question": "The flag of Algeria contains green and white colors.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-3-en"
+            },
+            {
+              "id": 4,
+              "question": "What is the official currency of Algeria?",
+              "answers": ["a) Dinar", "b) Dirham", "c) Riyal"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-4-en"
+            },
+            {
+              "id": 5,
+              "question": "Most of Algeria's area is covered by the Sahara Desert.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-5-en"
+            },
+            {
+              "id": 6,
+              "question": "Which animal lives in the Algerian desert?",
+              "answers": ["a) Penguin", "b) Camel", "c) Kangaroo"],
+              "correctIndex": 1,
+              "audioResource": "voices/dz-6-en"
+            },
+            {
+              "id": 7,
+              "question": "Emir Abdelkader is an important historical figure in Algeria.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-7-en"
+            },
+            {
+              "id": 8,
+              "question": "Which famous archaeological site is located in Algeria?",
+              "answers": ["a) Taj Mahal", "b) Colosseum", "c) Timgad"],
+              "correctIndex": 2,
+              "audioResource": "voices/dz-8-en"
+            },
+            {
+              "id": 9,
+              "question": "The most widespread religion in Algeria is Islam.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-9-en"
+            },
+            {
+              "id": 10,
+              "question": "In which continent is Algeria located?",
+              "answers": ["a) Asia", "b) Europe", "c) Africa"],
+              "correctIndex": 2,
+              "audioResource": "voices/dz-10-en"
+            }
+          ]
+        },
+        "fr": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "L'Algérie est le plus grand pays d'Afrique par sa superficie.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-1-fr"
+            },
+            {
+              "id": 2,
+              "question": "Quelle est la capitale de l'Algérie ?",
+              "answers": ["a) Oran", "b) Constantine", "c) Alger"],
+              "correctIndex": 2,
+              "audioResource": "voices/dz-2-fr"
+            },
+            {
+              "id": 3,
+              "question": "Le drapeau de l'Algérie contient du vert et du blanc.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-3-fr"
+            },
+            {
+              "id": 4,
+              "question": "Quelle est la monnaie officielle de l'Algérie ?",
+              "answers": ["a) Dinar algérien", "b) Dirham", "c) Riyal"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-4-fr"
+            },
+            {
+              "id": 5,
+              "question": "Le Sahara couvre la majeure partie de l'Algérie.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-5-fr"
+            },
+            {
+              "id": 6,
+              "question": "Quel animal vit dans le désert algérien ?",
+              "answers": ["a) Manchot", "b) Chameau", "c) Kangourou"],
+              "correctIndex": 1,
+              "audioResource": "voices/dz-6-fr"
+            },
+            {
+              "id": 7,
+              "question": "L'émir Abdelkader est une figure historique algérienne.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-7-fr"
+            },
+            {
+              "id": 8,
+              "question": "Quel site archéologique célèbre est en Algérie ?",
+              "answers": ["a) Taj Mahal", "b) Colisée", "c) Timgad"],
+              "correctIndex": 2,
+              "audioResource": "voices/dz-8-fr"
+            },
+            {
+              "id": 9,
+              "question": "L'Islam est la religion principale en Algérie.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/dz-9-fr"
+            },
+            {
+              "id": 10,
+              "question": "Sur quel continent se trouve l'Algérie ?",
+              "answers": ["a) Asie", "b) Europe", "c) Afrique"],
+              "correctIndex": 2,
+              "audioResource": "voices/dz-10-fr"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "countryId": "arg",
+      "countryName": "Argentina",
+      "languages": {
+        "ar": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "تقع الأرجنتين في قارة أمريكا الجنوبية.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-1-ar"
+            },
+            {
+              "id": 2,
+              "question": "ما هي عاصمة الأرجنتين؟",
+              "answers": ["أ) قرطبة", "ب) بوينس آيرس", "ج) مندوزا"],
+              "correctIndex": 1,
+              "audioResource": "voices/ar-2-ar"
+            },
+            {
+              "id": 3,
+              "question": "علم الأرجنتين يحتوي على شمس في وسطه.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-3-ar"
+            },
+            {
+              "id": 4,
+              "question": "ما هي العملة الرسمية للأرجنتين؟",
+              "answers": ["أ) الدولار", "ب) اليورو", "ج) البيزو الأرجنتيني"],
+              "correctIndex": 2,
+              "audioResource": "voices/ar-4-ar"
+            },
+            {
+              "id": 5,
+              "question": "جبال الأنديز تمتد على حدود الأرجنتين الغربية.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-5-ar"
+            },
+            {
+              "id": 6,
+              "question": "أي حيوان مشهور في الأرجنتين؟",
+              "answers": ["أ) اللاما", "ب) الكنغر", "ج) الدب القطبي"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-6-ar"
+            },
+            {
+              "id": 7,
+              "question": "فاز منتخب الأرجنتين بكأس العالم لكرة القدم.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-7-ar"
+            },
+            {
+              "id": 8,
+              "question": "من أشهر الشخصيات الرياضية في الأرجنتين؟",
+              "answers": [
+                "أ) نوفاك دجوكوفيتش",
+                "ب) ليونيل ميسي",
+                "ج) مايكل جوردان"
+              ],
+              "correctIndex": 1,
+              "audioResource": "voices/ar-8-ar"
+            },
+            {
+              "id": 9,
+              "question": "شلالات إيغوازو من أشهر المعالم الطبيعية في الأرجنتين.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-9-ar"
+            },
+            {
+              "id": 10,
+              "question": "ما لون الشمس الموجودة في علم الأرجنتين؟",
+              "answers": ["أ) حمراء", "ب) خضراء", "ج) صفراء ذهبية"],
+              "correctIndex": 2,
+              "audioResource": "voices/ar-10-ar"
+            }
+          ]
+        },
+        "en": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "Argentina is located in South America.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-1-en"
+            },
+            {
+              "id": 2,
+              "question": "What is the capital of Argentina?",
+              "answers": ["a) Córdoba", "b) Buenos Aires", "c) Mendoza"],
+              "correctIndex": 1,
+              "audioResource": "voices/ar-2-en"
+            },
+            {
+              "id": 3,
+              "question": "The flag of Argentina has a sun in its center.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-3-en"
+            },
+            {
+              "id": 4,
+              "question": "What is the official currency of Argentina?",
+              "answers": ["a) Dollar", "b) Euro", "c) Argentine Peso"],
+              "correctIndex": 2,
+              "audioResource": "voices/ar-4-en"
+            },
+            {
+              "id": 5,
+              "question": "The Andes Mountains span Argentina's western border.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-5-en"
+            },
+            {
+              "id": 6,
+              "question": "Which animal is famous in Argentina?",
+              "answers": ["a) Llama", "b) Kangaroo", "c) Polar bear"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-6-en"
+            },
+            {
+              "id": 7,
+              "question": "The Argentina national team won the World Cup.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-7-en"
+            },
+            {
+              "id": 8,
+              "question": "Who is a famous sports personality in Argentina?",
+              "answers": ["a) Djokovic", "b) Lionel Messi", "c) Jordan"],
+              "correctIndex": 1,
+              "audioResource": "voices/ar-8-en"
+            },
+            {
+              "id": 9,
+              "question": "Iguazu Falls is a famous natural landmark.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-9-en"
+            },
+            {
+              "id": 10,
+              "question": "What is the color of the sun on the flag?",
+              "answers": ["a) Red", "b) Green", "c) Golden yellow"],
+              "correctIndex": 2,
+              "audioResource": "voices/ar-10-en"
+            }
+          ]
+        },
+        "fr": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "L'Argentine est située en Amérique du Sud.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-1-fr"
+            },
+            {
+              "id": 2,
+              "question": "Quelle est la capitale de l'Argentine ?",
+              "answers": ["a) Cordoue", "b) Buenos Aires", "c) Mendoza"],
+              "correctIndex": 1,
+              "audioResource": "voices/ar-2-fr"
+            },
+            {
+              "id": 3,
+              "question": "Le drapeau de l'Argentine contient un soleil.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-3-fr"
+            },
+            {
+              "id": 4,
+              "question": "Quelle est la monnaie officielle ?",
+              "answers": ["a) Dollar", "b) Euro", "c) Peso argentin"],
+              "correctIndex": 2,
+              "audioResource": "voices/ar-4-fr"
+            },
+            {
+              "id": 5,
+              "question": "Les Andes s'étendent le long de la frontière.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-5-fr"
+            },
+            {
+              "id": 6,
+              "question": "Quel animal est célèbre en Argentine ?",
+              "answers": ["a) Lama", "b) Kangourou", "c) Ours polaire"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-6-fr"
+            },
+            {
+              "id": 7,
+              "question": "L'Argentine a remporté la Coupe du monde.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-7-fr"
+            },
+            {
+              "id": 8,
+              "question": "Qui est une personnalité sportive argentine célèbre ?",
+              "answers": [
+                "a) Novak Djokovic",
+                "b) Lionel Messi",
+                "c) Michael Jordan"
+              ],
+              "correctIndex": 1,
+              "audioResource": "voices/ar-8-fr"
+            },
+            {
+              "id": 9,
+              "question": "Les chutes d'Iguazú sont un monument naturel célèbre.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/ar-9-fr"
+            },
+            {
+              "id": 10,
+              "question": "Quelle est la couleur du soleil sur le drapeau ?",
+              "answers": ["a) Rouge", "b) Vert", "c) Jaune doré"],
+              "correctIndex": 2,
+              "audioResource": "voices/ar-10-fr"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "countryId": "aus",
+      "countryName": "Australia",
+      "languages": {
+        "ar": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "أستراليا هي دولة وقارة في الوقت نفسه.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-1-ar"
+            },
+            {
+              "id": 2,
+              "question": "ما هي عاصمة أستراليا؟",
+              "answers": ["أ) سيدني", "ب) ملبورن", "ج) كانبيرا"],
+              "correctIndex": 2,
+              "audioResource": "voices/au-2-ar"
+            },
+            {
+              "id": 3,
+              "question": "يوجد في علم أستراليا علم المملكة المتحدة في الزاوية العليا.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-3-ar"
+            },
+            {
+              "id": 4,
+              "question": "ما هي العملة الرسمية لأستراليا؟",
+              "answers": ["أ) الدولار الأسترالي", "ب) اليورو", "ج) الجنيه"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-4-ar"
+            },
+            {
+              "id": 5,
+              "question": "الكنغر من أشهر الحيوانات في أستراليا.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-5-ar"
+            },
+            {
+              "id": 6,
+              "question": "أي حيوان يعيش فقط تقريباً في أستراليا؟",
+              "answers": ["أ) الكنغر", "ب) الجمل", "ج) الزرافة"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-6-ar"
+            },
+            {
+              "id": 7,
+              "question": "الحاجز المرجاني العظيم من أشهر المعالم الطبيعية في أستراليا.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-7-ar"
+            },
+            {
+              "id": 8,
+              "question": "في أي نصف من الكرة الأرضية تقع أستراليا؟",
+              "answers": ["أ) الشمالي", "ب) الجنوبي", "ج) الشرقي فقط"],
+              "correctIndex": 1,
+              "audioResource": "voices/au-8-ar"
+            },
+            {
+              "id": 9,
+              "question": "أغلب سكان أستراليا يتحدثون اللغة الإنجليزية.",
+              "answers": ["صحيح", "خطأ"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-9-ar"
+            },
+            {
+              "id": 10,
+              "question": "ما الحيوان الذي يحمل صغيره في كيس؟",
+              "answers": ["أ) الكوالا", "ب) الكنغر", "ج) كلاهما"],
+              "correctIndex": 2,
+              "audioResource": "voices/au-10-ar"
+            }
+          ]
+        },
+        "en": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "Australia is both a country and a continent.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-1-en"
+            },
+            {
+              "id": 2,
+              "question": "What is the capital of Australia?",
+              "answers": ["a) Sydney", "b) Melbourne", "c) Canberra"],
+              "correctIndex": 2,
+              "audioResource": "voices/au-2-en"
+            },
+            {
+              "id": 3,
+              "question": "The Australian flag contains the UK flag.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-3-en"
+            },
+            {
+              "id": 4,
+              "question": "What is the official currency of Australia?",
+              "answers": ["a) AU Dollar", "b) Euro", "c) Pound"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-4-en"
+            },
+            {
+              "id": 5,
+              "question": "The kangaroo is a famous animal in Australia.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-5-en"
+            },
+            {
+              "id": 6,
+              "question": "Which animal lives almost exclusively in Australia?",
+              "answers": ["a) Kangaroo", "b) Camel", "c) Giraffe"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-6-en"
+            },
+            {
+              "id": 7,
+              "question": "The Great Barrier Reef is a famous natural landmark.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-7-en"
+            },
+            {
+              "id": 8,
+              "question": "In which hemisphere is Australia located?",
+              "answers": ["a) North", "b) South", "c) East"],
+              "correctIndex": 1,
+              "audioResource": "voices/au-8-en"
+            },
+            {
+              "id": 9,
+              "question": "Most residents of Australia speak English.",
+              "answers": ["True", "False"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-9-en"
+            },
+            {
+              "id": 10,
+              "question": "Which animal carries its young in a pouch?",
+              "answers": ["a) Koala", "b) Kangaroo", "c) Both"],
+              "correctIndex": 2,
+              "audioResource": "voices/au-10-en"
+            }
+          ]
+        },
+        "fr": {
+          "questions": [
+            {
+              "id": 1,
+              "question": "L'Australie est à la fois un pays et un continent.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-1-fr"
+            },
+            {
+              "id": 2,
+              "question": "Quelle est la capitale de l'Australie ?",
+              "answers": ["a) Sydney", "b) Melbourne", "c) Canberra"],
+              "correctIndex": 2,
+              "audioResource": "voices/au-2-fr"
+            },
+            {
+              "id": 3,
+              "question": "Le drapeau de l'Australie contient l'Union Jack.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-3-fr"
+            },
+            {
+              "id": 4,
+              "question": "Quelle est la monnaie officielle ?",
+              "answers": ["a) Dollar australien", "b) Euro", "c) Livre"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-4-fr"
+            },
+            {
+              "id": 5,
+              "question": "Le kangourou est un animal célèbre en Australie.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-5-fr"
+            },
+            {
+              "id": 6,
+              "question": "Quel animal vit presque uniquement en Australie ?",
+              "answers": ["a) Kangourou", "b) Chameau", "c) Girafe"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-6-fr"
+            },
+            {
+              "id": 7,
+              "question": "La Grande Barrière de corail est un monument naturel célèbre.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-7-fr"
+            },
+            {
+              "id": 8,
+              "question": "Dans quel hémisphère se trouve l'Australie ?",
+              "answers": ["a) Nord", "b) Sud", "c) Est"],
+              "correctIndex": 1,
+              "audioResource": "voices/au-8-fr"
+            },
+            {
+              "id": 9,
+              "question": "La majorité des habitants parlent anglais.",
+              "answers": ["Vrai", "Faux"],
+              "correctIndex": 0,
+              "audioResource": "voices/au-9-fr"
+            },
+            {
+              "id": 10,
+              "question": "Quel animal porte son petit dans une poche ?",
+              "answers": ["a) Koala", "b) Kangourou", "c) Les deux"],
+              "correctIndex": 2,
+              "audioResource": "voices/au-10-fr"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
