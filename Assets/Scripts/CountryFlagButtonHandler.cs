@@ -55,6 +55,7 @@ public class CountryFlagButtonHandler : MonoBehaviour
 
         panel.SetActive(false);
         RefreshAllLockStates();
+        InitializeDefaultSelection();
 
         Debug.Log($"[MapHandler] Ready — {buttons.Count} buttons / " +
                   $"{countries.Count} countries / {lockOverlays?.Count ?? 0} overlays");
@@ -154,6 +155,30 @@ public class CountryFlagButtonHandler : MonoBehaviour
         }
     }
 
+    void InitializeDefaultSelection()
+    {
+        if (countries == null || countries.Count == 0)
+            return;
+
+        int defaultIndex;
+        if (CountryDataHolder.Instance != null && CountryDataHolder.Instance.SelectedIndex >= 0)
+        {
+            defaultIndex = Mathf.Clamp(CountryDataHolder.Instance.SelectedIndex, 0, countries.Count - 1);
+        }
+        else
+        {
+            defaultIndex = PlayerPrefs.HasKey("OpponentIndex")
+                ? Mathf.Clamp(PlayerPrefs.GetInt("OpponentIndex"), 0, countries.Count - 1)
+                : 0;
+        }
+
+        selectedIndex = defaultIndex;
+        selectedCountry = countries[defaultIndex];
+
+        if (CountryDataHolder.Instance != null)
+            CountryDataHolder.Instance.SetSelectedIndex(defaultIndex);
+    }
+
     // ── Selection ─────────────────────────────────────────────────────────
 
     void OnCountrySelected(int index)
@@ -171,6 +196,15 @@ public class CountryFlagButtonHandler : MonoBehaviour
 
         selectedIndex = index;
         selectedCountry = countries[index];
+
+        if (CountryDataHolder.Instance != null)
+        {
+            CountryDataHolder.Instance.SetSelectedIndex(index);
+            Debug.Log($"[MapHandler] OnCountrySelected: synced CountryDataHolder idx={index} ('{selectedCountry.countryName}')");
+        }
+        else
+            Debug.LogError("[MapHandler] OnCountrySelected: CountryDataHolder.Instance is null!");
+
         panel.SetActive(true);
         flagDisplay.sprite = selectedCountry.flag;
         if (countryNameText != null)
@@ -181,14 +215,20 @@ public class CountryFlagButtonHandler : MonoBehaviour
 
     void OnPlayClicked()
     {
-        if (selectedCountry == null) return;
+        if (selectedCountry == null)
+        {
+            Debug.LogError("[MapHandler] Play clicked but selectedCountry is null! User must click a country first.");
+            return;
+        }
 
-        // Persist both index and name — BackgroundManager reads OpponentCountry
+        Debug.Log($"[MapHandler] OnPlayClicked: saving country='{selectedCountry.countryName}', index={selectedIndex}, flag={(selectedCountry.flag != null ? selectedCountry.flag.name : "null")}");
+
         PlayerPrefs.SetInt("OpponentIndex", selectedIndex);
         PlayerPrefs.SetString("OpponentCountry", selectedCountry.countryName);
         PlayerPrefs.Save();
 
-        // Also sync CountryDataHolder for anything else that needs it
+        Debug.Log($"[MapHandler] Verified PlayerPrefs after save: OpponentCountry='{PlayerPrefs.GetString("OpponentCountry")}', OpponentIndex={PlayerPrefs.GetInt("OpponentIndex", -999)}");
+
         CountryDataHolder.Instance.SetSelectedIndex(selectedIndex);
 
         Debug.Log($"[MapHandler] Loading level for: '{selectedCountry.countryName}' (index {selectedIndex})");

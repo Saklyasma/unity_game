@@ -347,7 +347,7 @@ public class BotAIController : MonoBehaviour
         _sqrShoot = shootTriggerRange * shootTriggerRange;
 
         SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
-        if (sr != null) sr.color = stats.jerseyColor;
+        if (sr != null) sr.color = Color.white;
 
         Debug.Log($"[BotAI] Stats applied for {stats.countryName} — difficulty={difficulty}");
     }
@@ -534,7 +534,7 @@ public class BotAIController : MonoBehaviour
         }
 
         rb.velocity = new Vector2(newVelX, newVelY);
-        Flip(_fieldDir < 0f);
+        Flip(_fieldDir > 0f);
     }
 
     // ═════════════════════════════════════════════════════════
