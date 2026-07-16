@@ -21,6 +21,17 @@ public class BotStatsData : ScriptableObject
     [Header("AI - Pressure")]
     public float pressureSpeedBoost = 1.25f;
 
+    [Header("Play Style")]
+    [Range(0f, 1f)]
+    [Tooltip("Higher = chases more aggressively, presses higher up the field")]
+    public float aggressive = 0.5f;
+    [Range(0f, 1f)]
+    [Tooltip("Higher = stays back, prioritizes defense over attack")]
+    public float defensive = 0.3f;
+    [Range(0f, 1f)]
+    [Tooltip("Higher = dribbles toward goal before shooting, keeps possession longer")]
+    public float possession = 0.4f;
+
     [Header("Visuals")]
     public Color jerseyColor = Color.white;
 }

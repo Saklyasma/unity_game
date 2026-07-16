@@ -6,14 +6,7 @@ public class ProgressionManager : MonoBehaviour
 {
     public static ProgressionManager Instance { get; private set; }
 
-    private readonly List<RegionData> regions = new List<RegionData>
-{
-    new RegionData("Africa",       new List<int> { 0, 7  }),  // Algeria → Germany
-    new RegionData("America",      new List<int> { 1, 3, 9}), // Argentine → Brezil → USA
-    new RegionData("Oceania",      new List<int> { 2      }), // Australia
-    new RegionData("Europe",       new List<int> { 4, 5  }),  // France → Roussia
-    new RegionData("Asia",         new List<int> { 6, 8  }),  // Japan → Niger
-};
+    private List<RegionData> regions = new List<RegionData>();
 
     private const string SaveKey_Completed = "completed_";
     private const string SaveKey_Unlocked = "unlocked_";
@@ -23,7 +16,23 @@ public class ProgressionManager : MonoBehaviour
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        InitFirstUnlock();
+        LoadRegionsFromConfig();
+        InitUnlocks();
+    }
+
+    private void LoadRegionsFromConfig()
+    {
+        regions.Clear();
+        var configRegions = WorldCupConfig.GetRegions();
+        if (configRegions != null)
+        {
+            foreach (var r in configRegions)
+            {
+                if (r.countryIndexes != null && r.countryIndexes.Length > 0)
+                    regions.Add(new RegionData(r.name, new List<int>(r.countryIndexes)));
+            }
+        }
+        Debug.Log($"[ProgressionManager] Loaded {regions.Count} regions from config");
     }
 
     /// <summary>Call this after the player wins a match.</summary>
@@ -52,9 +61,19 @@ public class ProgressionManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("🏆 All regions complete!");
+                Debug.Log("[ProgressionManager] All regions complete!");
             }
         }
+    }
+
+    /// <summary>Returns the first unlocked but not yet completed country index, or -1 if all done.</summary>
+    public int GetNextPlayableCountry()
+    {
+        int total = WorldCupConfig.CountryCount();
+        for (int i = 0; i < total; i++)
+            if (IsUnlocked(i) && !IsCompleted(i))
+                return i;
+        return -1;
     }
 
     public bool IsUnlocked(int countryIndex)
@@ -65,16 +84,21 @@ public class ProgressionManager : MonoBehaviour
 
     // ── Helpers ───────────────────────────────────────────────────────
 
-    private void InitFirstUnlock()
+    private void InitUnlocks()
     {
-        if (!IsUnlocked(0)) UnlockCountry(0);
+        int total = WorldCupConfig.CountryCount();
+        for (int i = 0; i < total; i++)
+        {
+            if (WorldCupConfig.IsStartUnlocked(i) && !IsUnlocked(i))
+                UnlockCountry(i);
+        }
     }
 
     private void UnlockCountry(int idx)
     {
         PlayerPrefs.SetInt(SaveKey_Unlocked + idx, 1);
         PlayerPrefs.Save();
-        Debug.Log($"✅ Country {idx} unlocked!");
+        Debug.Log($"[ProgressionManager] Country {idx} unlocked!");
     }
 
     private void MarkCompleted(int idx)
@@ -100,13 +124,13 @@ public class ProgressionManager : MonoBehaviour
 
     public void ResetProgress()
     {
-        foreach (var region in regions)
-            foreach (int idx in region.countryIndexes)
-            {
-                PlayerPrefs.DeleteKey(SaveKey_Unlocked + idx);
-                PlayerPrefs.DeleteKey(SaveKey_Completed + idx);
-            }
+        int total = WorldCupConfig.CountryCount();
+        for (int i = 0; i < total; i++)
+        {
+            PlayerPrefs.DeleteKey(SaveKey_Unlocked + i);
+            PlayerPrefs.DeleteKey(SaveKey_Completed + i);
+        }
         PlayerPrefs.Save();
-        InitFirstUnlock();
+        InitUnlocks();
     }
 }

@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WorldCupApi.Api</name>
+    </assembly>
+    <members>
+        <member name="T:WorldCupApi.Api.Controllers.BotStatsController">
+            <summary>AI opponent tuning per country — admin CRUD, backed by MongoDB.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.BotStatsController.GetAll">
+            <summary>Get all bot stat profiles.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.BotStatsController.GetById(System.Int32)">
+            <summary>Get a single bot stats profile by id.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.BotStatsController.GetByCountry(System.Int32)">
+            <summary>Get the bot stats profile for a given country.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.BotStatsController.Create(WorldCupApi.Api.Models.BotStatsRequest)">
+            <summary>Create a new bot stats profile.</summary>
+            <remarks>Id is server-generated. countryId must reference an existing country, and each country may only have one profile.</remarks>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.BotStatsController.Update(System.Int32,WorldCupApi.Api.Models.BotStatsRequest)">
+            <summary>Update an existing bot stats profile.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.BotStatsController.Delete(System.Int32)">
+            <summary>Delete a bot stats profile.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Controllers.CountriesController">
+            <summary>Playable opponent countries — admin CRUD, backed by MongoDB.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.CountriesController.GetAll">
+            <summary>Get all countries.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.CountriesController.GetById(System.Int32)">
+            <summary>Get a single country by id.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.CountriesController.Create(WorldCupApi.Api.Models.CountryRequest)">
+            <summary>Create a new country.</summary>
+            <remarks>Id is server-generated — do not send it. Name must be unique.</remarks>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.CountriesController.Update(System.Int32,WorldCupApi.Api.Models.CountryRequest)">
+            <summary>Update an existing country.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.CountriesController.Delete(System.Int32)">
+            <summary>
+            Delete a country. Cascades: also deletes every quiz question and bot stats
+            profile that referenced it, so nothing is left pointing at a country that no longer exists.
+            </summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Controllers.MatchesController">
+            <summary>Fixtures between national teams.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.MatchesController.GetMatches">
+            <summary>Get all matches.</summary>
+            <remarks>Returns every seeded fixture with home/away team details resolved.</remarks>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.MatchesController.GetMatch(System.Int32)">
+            <summary>Get a single match by id.</summary>
+            <param name="id">Match identifier, e.g. 1.</param>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.MatchesController.GetMatchesByTeam(System.Int32)">
+            <summary>Get every match involving a given team.</summary>
+            <param name="teamId">Team identifier, e.g. 1.</param>
+        </member>
+        <member name="T:WorldCupApi.Api.Controllers.PredictionsController">
+            <summary>Score predictions submitted by players.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.PredictionsController.GetPredictions">
+            <summary>Get every prediction submitted so far.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.PredictionsController.CreatePrediction(WorldCupApi.Api.Models.PredictionRequest)">
+            <summary>Submit a score prediction for a match.</summary>
+            <remarks>The request body is pre-filled with a ready-to-run example in Swagger UI — just hit Execute.</remarks>
+            <param name="request">Prediction payload.</param>
+        </member>
+        <member name="T:WorldCupApi.Api.Controllers.PredictionRequestExample">
+            <summary>Provides the sample payload shown by default in Swagger UI's "Try it out" panel.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Controllers.QuizQuestionsController">
+            <summary>Defensive-quiz questions per country/language — admin CRUD, backed by MongoDB.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.QuizQuestionsController.GetAll">
+            <summary>Get all quiz questions.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.QuizQuestionsController.GetById(System.Int32)">
+            <summary>Get a single quiz question by id.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.QuizQuestionsController.GetByCountry(System.Int32,System.String)">
+            <summary>Get every question for a given country, optionally filtered by language.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.QuizQuestionsController.GetRandomForCountry(System.Int32,System.String)">
+            <summary>Get one random question for a country (mirrors QuizManager.PickRandom in Unity).</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.QuizQuestionsController.Create(WorldCupApi.Api.Models.QuizQuestionRequest)">
+            <summary>Create a new quiz question.</summary>
+            <remarks>Id is server-generated — do not send it. countryId must reference an existing country.</remarks>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.QuizQuestionsController.Update(System.Int32,WorldCupApi.Api.Models.QuizQuestionRequest)">
+            <summary>Update an existing quiz question.</summary>
+            <remarks>countryId must reference an existing country.</remarks>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.QuizQuestionsController.ValidateAsync(WorldCupApi.Api.Models.QuizQuestionRequest)">
+            <summary>
+            Cross-field checks DataAnnotations can't express: countryId must exist, and correctIndex
+            must actually be a valid index into answers.
+            </summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.QuizQuestionsController.Delete(System.Int32)">
+            <summary>Delete a quiz question.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Controllers.TeamsController">
+            <summary>National teams competing in the tournament.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.TeamsController.GetTeams">
+            <summary>Get all teams.</summary>
+            <remarks>Returns the full list of seeded national teams, grouped by their group stage letter.</remarks>
+        </member>
+        <member name="M:WorldCupApi.Api.Controllers.TeamsController.GetTeam(System.Int32)">
+            <summary>Get a single team by id.</summary>
+            <param name="id">Team identifier, e.g. 1.</param>
+        </member>
+        <member name="T:WorldCupApi.Api.Data.CounterDocument">
+            <summary>
+            Backs the auto-increment scheme: MongoDB has no native auto-increment,
+            so each collection gets one counter document tracking its last used id.
+            </summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Data.DbSeeder">
+            <summary>
+            Seeds MongoDB with sample data on first run, so every endpoint stays
+            testable straight from Swagger UI — matching the old in-memory store's UX.
+            </summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Data.DbSeeder.SeedCountriesAsync(WorldCupApi.Api.Data.IRepository{WorldCupApi.Api.Models.Country})">
+            <summary>Matches ProgressionManager's region layout in the Unity client exactly (indices 0-9).</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Data.IEntity">
+            <summary>Contract every MongoDB-backed entity must satisfy so the generic repository can operate on it.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Data.IEntity.Id">
+            <summary>Business identifier (also used as the MongoDB `_id` — BSON supports int32 ids directly).</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Data.IndexInitializer">
+            <summary>
+            Ensures MongoDB indexes exist on startup. CreateOneAsync is idempotent — safe to call every run.
+            These indexes are the real enforcement layer for constraints the C# layer only checks
+            optimistically (e.g. one bot profile per country) — a defense against races/duplicate writes.
+            </summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Data.IRepository`1">
+            <summary>
+            Generic data-access abstraction (Repository pattern) — controllers depend on this,
+            never on the MongoDB driver directly, so the persistence engine can change without
+            touching business logic.
+            </summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Data.IWorldCupDataStore">
+            <summary>Domain-facing data access for teams, matches and predictions — backed by MongoDB via IRepository&lt;T&gt;.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Data.MongoDbSettings">
+            <summary>Bound from the "MongoDbSettings" section in appsettings.json — never hardcode connection strings.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Data.MongoRepository`1">
+            <summary>Concrete Repository implementation backed by a real MongoDB collection.</summary>
+        </member>
+        <member name="M:WorldCupApi.Api.Data.MongoRepository`1.NextIdAsync">
+            <summary>Atomically reserves the next id for this collection (classic MongoDB auto-increment pattern).</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Data.WorldCupDataStore">
+            <summary>
+            Composes the generic MongoDB repositories into the domain-facing store the
+            controllers consume — controllers stay unaware that MongoDB exists at all.
+            </summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.BotStats">
+            <summary>
+            Server-side twin of the Unity BotStatsData ScriptableObject — lets the admin
+            panel tune a country's AI opponent without rebuilding the game.
+            </summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.BotStats.CountryId">
+            <summary>Id of the Country this AI profile belongs to.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.BotStats.Difficulty">
+            <summary>0 = easy, 1 = hard.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.BotStats.Aggressive">
+            <summary>Higher = chases more aggressively, presses higher up the field.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.BotStats.Defensive">
+            <summary>Higher = stays back, prioritizes defense over attack.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.BotStats.Possession">
+            <summary>Higher = dribbles toward goal before shooting, keeps possession longer.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.BotStatsRequest">
+            <summary>Payload to create or update a bot stats profile. Id is server-generated — never sent by the client.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.BotStatsRequest.CountryId">
+            <summary>Id of the Country this AI profile belongs to — must reference an existing country, and each country may only have one profile.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.Country">
+            <summary>A playable opponent country (mirrors CountryFlag / ProgressionManager in the Unity client).</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Country.Id">
+            <summary>Unique identifier — matches the country index used by ProgressionManager in Unity.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Country.Name">
+            <summary>Full country name (e.g. "Niger").</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Country.Code">
+            <summary>3-letter code (e.g. "NER").</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Country.FlagEmoji">
+            <summary>Flag emoji, handy for quick display.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Country.Continent">
+            <summary>Region grouping used for progression unlocks (Africa, America, Oceania, Europe, Asia).</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Country.IsUnlockedByDefault">
+            <summary>True only for the very first country (unlocked with no prerequisite).</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.CountryRequest">
+            <summary>Payload to create or update a country. Id is server-generated — never sent by the client.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.Match">
+            <summary>A fixture between two national teams.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Match.Id">
+            <summary>Unique identifier.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Match.HomeTeamId">
+            <summary>Id of the home team.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Match.AwayTeamId">
+            <summary>Id of the away team.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Match.KickOffUtc">
+            <summary>Kick-off date and time (UTC).</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Match.Stadium">
+            <summary>Stadium where the match is played.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Match.HomeScore">
+            <summary>Goals scored by the home team, null until the match starts.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Match.AwayScore">
+            <summary>Goals scored by the away team, null until the match starts.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Match.Status">
+            <summary>Current status of the match.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.MatchResponse">
+            <summary>A match enriched with readable team names, ready to display without extra lookups.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.MatchResponse.Id">
+            <summary>Unique identifier.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.MatchResponse.HomeTeam">
+            <summary>Home team.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.MatchResponse.AwayTeam">
+            <summary>Away team.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.MatchResponse.KickOffUtc">
+            <summary>Kick-off date and time (UTC).</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.MatchResponse.Stadium">
+            <summary>Stadium where the match is played.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.MatchResponse.HomeScore">
+            <summary>Goals scored by the home team, null until the match starts.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.MatchResponse.AwayScore">
+            <summary>Goals scored by the away team, null until the match starts.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.MatchResponse.Status">
+            <summary>Current status of the match.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.TeamSummary">
+            <summary>Minimal team info embedded in match responses.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.TeamSummary.Id">
+            <summary>Unique identifier.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.TeamSummary.Name">
+            <summary>Full country name.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.TeamSummary.Code">
+            <summary>3-letter FIFA country code.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.TeamSummary.FlagEmoji">
+            <summary>Flag emoji.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.MatchStatus">
+            <summary>Lifecycle status of a match.</summary>
+        </member>
+        <member name="F:WorldCupApi.Api.Models.MatchStatus.Scheduled">
+            <summary>Match has not started yet.</summary>
+        </member>
+        <member name="F:WorldCupApi.Api.Models.MatchStatus.Live">
+            <summary>Match is currently being played.</summary>
+        </member>
+        <member name="F:WorldCupApi.Api.Models.MatchStatus.Finished">
+            <summary>Match has ended.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.PredictionRequest">
+            <summary>Payload to submit a score prediction for a match.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.PredictionRequest.MatchId">
+            <summary>Id of the match being predicted.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.PredictionRequest.PlayerName">
+            <summary>Name of the player making the prediction.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.PredictionRequest.PredictedHomeScore">
+            <summary>Predicted number of goals for the home team.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.PredictionRequest.PredictedAwayScore">
+            <summary>Predicted number of goals for the away team.</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.PredictionResponse">
+            <summary>A stored prediction, echoed back after submission or when listed.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.PredictionResponse.Id">
+            <summary>Unique identifier.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.PredictionResponse.MatchId">
+            <summary>Id of the predicted match.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.PredictionResponse.PlayerName">
+            <summary>Name of the player who made the prediction.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.PredictionResponse.PredictedHomeScore">
+            <summary>Predicted number of goals for the home team.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.PredictionResponse.PredictedAwayScore">
+            <summary>Predicted number of goals for the away team.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.PredictionResponse.SubmittedAtUtc">
+            <summary>When the prediction was submitted (UTC).</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.QuizQuestion">
+            <summary>
+            A defensive-quiz question tied to a country (mirrors the QuizData.json structure
+            consumed by QuizManager in the Unity client).
+            </summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.QuizQuestion.CountryId">
+            <summary>Id of the Country this question is about.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.QuizQuestion.Language">
+            <summary>Language code: "ar", "en" or "fr".</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.QuizQuestion.CorrectIndex">
+            <summary>Index into Answers that is correct.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.QuizQuestion.AudioResource">
+            <summary>Optional Resources path to the voice-over clip (e.g. "voices/ne-10-ar").</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.QuizQuestionRequest">
+            <summary>
+            Payload to create or update a quiz question. Deliberately excludes Id (server-generated
+            by the Repository's auto-increment) — mirrors the PredictionRequest/PredictionResponse split.
+            </summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.QuizQuestionRequest.CountryId">
+            <summary>Id of the Country this question is about — must reference an existing country.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.QuizQuestionRequest.Language">
+            <summary>Language code: "ar", "en" or "fr".</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.QuizQuestionRequest.Answers">
+            <summary>At least 2 answer options.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.QuizQuestionRequest.CorrectIndex">
+            <summary>Index into Answers that is correct — validated against Answers.Count in the controller.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.QuizQuestionRequest.AudioResource">
+            <summary>Optional Resources path to the voice-over clip (e.g. "voices/ne-10-ar").</summary>
+        </member>
+        <member name="T:WorldCupApi.Api.Models.Team">
+            <summary>A national team competing in the tournament.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Team.Id">
+            <summary>Unique identifier.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Team.Name">
+            <summary>Full country name.</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Team.Code">
+            <summary>3-letter FIFA country code (e.g. "FRA").</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Team.Group">
+            <summary>Group letter in the group stage (e.g. "A").</summary>
+        </member>
+        <member name="P:WorldCupApi.Api.Models.Team.FlagEmoji">
+            <summary>Flag emoji, handy for quick visual identification in responses.</summary>
+        </member>
+    </members>
+</doc>

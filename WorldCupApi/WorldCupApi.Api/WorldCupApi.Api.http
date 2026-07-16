@@ -1,0 +1,23 @@
+@WorldCupApi.Api_HostAddress = http://localhost:5294
+
+GET {{WorldCupApi.Api_HostAddress}}/api/teams
+Accept: application/json
+
+###
+
+GET {{WorldCupApi.Api_HostAddress}}/api/matches
+Accept: application/json
+
+###
+
+POST {{WorldCupApi.Api_HostAddress}}/api/predictions
+Content-Type: application/json
+
+{
+  "matchId": 1,
+  "playerName": "Souhaila",
+  "predictedHomeScore": 2,
+  "predictedAwayScore": 1
+}
+
+###

@@ -8,7 +8,7 @@ public class SoccerGameManager : MonoBehaviour
     public enum GoalOwner { Player, Bot }
 
     // ── Win condition ──────────────────────────────────────────────────────
-    private const int WIN_SCORE = 5;   // ← change here to adjust match length
+    private int _winScore = 1;   // loaded from WorldCupConfig per country
 
     public bool IsPlaying { get; private set; } = true;
     public int PlayerScore { get; private set; }
@@ -81,6 +81,10 @@ public class SoccerGameManager : MonoBehaviour
         AutoFindOpponentUI();
         UpdateScoreUI();
         DisplayOpponentInfo();
+
+        int idx = PlayerPrefs.GetInt("OpponentIndex", 0);
+        _winScore = WorldCupConfig.GetGoalsToWin(idx);
+        Debug.Log($"[GameManager] Win score set to {_winScore} for country index {idx}");
     }
 
     // ── Public API ─────────────────────────────────────────────────────────
@@ -92,6 +96,10 @@ public class SoccerGameManager : MonoBehaviour
 
         _quizSource = QuizSource.Goal;
         _lastGoalOwner = scorer;
+
+        // Record player's shot position for bot pattern adaptation
+        if (scorer == GoalOwner.Player && ball != null && botAI != null)
+            botAI.RecordPlayerShot(ball.transform.position.y);
 
         Debug.Log($"[GameManager] OnGoalScored — scorer={scorer}");
         FreezeGame();
@@ -250,13 +258,13 @@ public class SoccerGameManager : MonoBehaviour
         UpdateScoreUI();
 
         // ── Check win condition BEFORE resetting the round ─────────────────
-        if (PlayerScore >= WIN_SCORE)
+        if (PlayerScore >= _winScore)
         {
             EndMatch(playerWon: true);
             return;   // Do NOT reset the round — match is over
         }
 
-        if (BotScore >= WIN_SCORE)
+        if (BotScore >= _winScore)
         {
             EndMatch(playerWon: false);
             return;
@@ -284,6 +292,8 @@ public class SoccerGameManager : MonoBehaviour
             {
                 ProgressionManager.Instance.OnMatchWin(wonIndex);
                 Debug.Log($"[GameManager] Reported win for country index {wonIndex}.");
+
+                Debug.Log($"[GameManager] Next country unlocked — waiting for Next Match click.");
             }
             else
             {

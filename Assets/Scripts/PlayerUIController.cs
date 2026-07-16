@@ -164,6 +164,25 @@ public class PlayerUIController : MonoBehaviour
         if (kickCooldown > 0f) kickCooldown -= Time.fixedDeltaTime;
     }
 
+    // ── Keyboard Input ───────────────────────────────────────────────
+    // btn_Right -> Right Arrow, btn_Left -> Left Arrow,
+    // btn_Jump -> Space, btn_Shoot -> A. Mirrors the on-screen buttons
+    // by calling the exact same handlers, so all downstream logic
+    // (flip, cooldown, super shoot, etc.) stays identical.
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.RightArrow)) MoveRightDown();
+        if (Input.GetKeyUp(KeyCode.RightArrow)) StopMove();
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) MoveLeftDown();
+        if (Input.GetKeyUp(KeyCode.LeftArrow)) StopMove();
+
+        if (Input.GetKeyDown(KeyCode.Space)) Jump();
+
+        if (Input.GetKeyDown(KeyCode.A)) Shoot();
+    }
+
     // ── Movement ─────────────────────────────────────────────────────
 
     public void MoveRightDown() { moveDirection = 1f; Flip(true); }

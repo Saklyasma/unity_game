@@ -1,0 +1,21 @@
+{
+  "countries": [
+    { "index": 0, "displayName": "Algeria",   "goalsToWin": 1, "startUnlocked": true,  "region": "Africa" },
+    { "index": 1, "displayName": "Argentina", "goalsToWin": 1, "startUnlocked": false, "region": "America" },
+    { "index": 2, "displayName": "Australia", "goalsToWin": 1, "startUnlocked": false, "region": "Oceania" },
+    { "index": 3, "displayName": "Brazil",    "goalsToWin": 1, "startUnlocked": false, "region": "America" },
+    { "index": 4, "displayName": "France",    "goalsToWin": 1, "startUnlocked": false, "region": "Europe" },
+    { "index": 5, "displayName": "Germany",   "goalsToWin": 1, "startUnlocked": false, "region": "Europe" },
+    { "index": 6, "displayName": "Japan",     "goalsToWin": 1, "startUnlocked": false, "region": "Asia" },
+    { "index": 7, "displayName": "Niger",     "goalsToWin": 1, "startUnlocked": false, "region": "Africa" },
+    { "index": 8, "displayName": "Russia",    "goalsToWin": 1, "startUnlocked": false, "region": "Asia" },
+    { "index": 9, "displayName": "USA",       "goalsToWin": 1, "startUnlocked": false, "region": "America" }
+  ],
+  "regions": [
+    { "name": "Africa",  "countryIndexes": [0, 7] },
+    { "name": "America", "countryIndexes": [1, 3, 9] },
+    { "name": "Oceania", "countryIndexes": [2] },
+    { "name": "Europe",  "countryIndexes": [4, 5] },
+    { "name": "Asia",    "countryIndexes": [6, 8] }
+  ]
+}

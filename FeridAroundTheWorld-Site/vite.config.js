@@ -1,0 +1,17 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 5173,
+    open: true,
+    proxy: {
+      // WorldCupApi (.NET + MongoDB "WorldCupApiDb") — run with `dotnet run` from WorldCupApi.Api.
+      '/api': {
+        target: 'http://localhost:5294',
+        changeOrigin: true
+      }
+    }
+  }
+})

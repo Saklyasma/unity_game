@@ -61,11 +61,19 @@ public class MatchEndPopup : MonoBehaviour
 
         if (popupPanel != null) popupPanel.SetActive(true);
 
+        // ── Show/hide buttons based on win/loss ─────────────────────────
+        bool hasNext = ProgressionManager.Instance != null &&
+                       ProgressionManager.Instance.GetNextPlayableCountry() >= 0;
+        if (nextMatchButton != null)
+            nextMatchButton.gameObject.SetActive(playerWon && hasNext);
+        if (restartButton != null)
+            restartButton.gameObject.SetActive(!playerWon);
+
         // Game is already frozen by SoccerGameManager.FreezeGame()
         // We freeze again here as a safety net in case ShowPopup is called standalone
         Time.timeScale = 0f;
 
-        Debug.Log($"[MatchEndPopup] Shown — playerWon={playerWon}");
+        Debug.Log($"[MatchEndPopup] Shown — playerWon={playerWon}, hasNext={hasNext}");
     }
 
     // ── Button handlers ────────────────────────────────────────────────────
@@ -79,6 +87,27 @@ public class MatchEndPopup : MonoBehaviour
     private void OnNextMatch()
     {
         Time.timeScale = 1f;
+
+        // ── Advance to next playable country BEFORE loading ────────────
+        if (ProgressionManager.Instance != null)
+        {
+            int nextIdx = ProgressionManager.Instance.GetNextPlayableCountry();
+            if (nextIdx >= 0)
+            {
+                string countryName = $"Country_{nextIdx}";
+                if (CountryDataHolder.Instance != null &&
+                    CountryDataHolder.Instance.Countries != null &&
+                    nextIdx < CountryDataHolder.Instance.Countries.Count)
+                {
+                    countryName = CountryDataHolder.Instance.Countries[nextIdx].countryName;
+                }
+                PlayerPrefs.SetInt("OpponentIndex", nextIdx);
+                PlayerPrefs.SetString("OpponentCountry", countryName);
+                PlayerPrefs.Save();
+                Debug.Log($"[MatchEndPopup] Advanced to next country: index={nextIdx}, name={countryName}");
+            }
+        }
+
         SceneManager.LoadScene(nextSceneName);
     }
 

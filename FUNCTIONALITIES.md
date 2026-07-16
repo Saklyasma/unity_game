@@ -28,7 +28,7 @@ The game includes a 2D football match where the player competes against an AI-co
 - Physics-based ball interaction
 - Goal detection
 - Score tracking
-- Match win condition at **5 goals**
+- Match win condition at **1 goal** (score once, advance to next country)
 - Round reset after scoring events
 - Match end popup with replay/navigation actions
 
@@ -44,7 +44,7 @@ The game includes a 2D football match where the player competes against an AI-co
 
 From `SoccerGameManager`:
 
-- `WIN_SCORE` is set to `5`
+- `WIN_SCORE` is set to `1` (1 goal wins the match, advancing to next country)
 - gameplay pauses when a goal or quiz-triggering event happens
 - the game resumes after quiz resolution or round reset
 - player and bot scores are tracked centrally
@@ -158,8 +158,22 @@ The bot supports per-country tuning such as:
 - pressure boost
 - difficulty
 - jersey color
+- **aggressive** (0-1): how aggressively the bot chases the ball
+- **defensive** (0-1): how much the bot prioritizes defense
+- **possession** (0-1): tendency to dribble vs shoot
 
 These are applied through `BotStatsData` and `ApplyStats()`.
+
+### Advanced AI Features (v2.0+)
+
+| Feature | Description |
+|---------|-------------|
+| **Super shoot awareness** | Bot detects when the player has Super Shoot ready (`PlayerSuperShootEarned`) and plays more defensively — stays in goalie mode, avoids reckless chasing |
+| **Player pattern adaptation** | Bot records the Y-position of the player's last 5 shots (tracked via `RecordPlayerShot()` on player goals). Goalie biases away from the player's preferred shooting zone using `patternAvoidBias` |
+| **Dribble vs shoot decision** | When `playStylePossession > 0.4` and there's open space ahead (`>25%` of field width to goal), the bot dribbles forward instead of shooting — controlled by `ShouldKickInsteadOfDribble()` |
+| **Country-specific play styles** | Each country's `BotStatsData` defines `aggressive`, `defensive`, `possession` values. Aggressive countries chase sooner; defensive countries prioritize goalie positioning |
+| **Goalie vs super shoot** | When `BallController.SuperModeActive` is true, the goalie tracks the ball's current position (not prediction) and jumps at lower height thresholds |
+| **Tactical possession fallback** | After losing possession, bot waits `0.6s` in a defensive posture before re-engaging — prevents instant chasing after turnovers |
 
 ---
 
@@ -235,14 +249,13 @@ Location: `Assets/Scripts/MatchEndPopup.cs`
 
 The project includes a match completion popup for end-of-game decisions.
 
-### Expected functionalities
+### Verified functionalities
 
 - Show win/lose result
 - Restart current match
-- Move to next match
+- **Move to next match** — advances to the next unlocked country in the progression before loading the scene
+- **"Next Match" button hidden** when no more countries to play (all completed)
 - Return to map
-
-This behavior is also referenced by `SoccerGameManager` and the existing project documentation.
 
 ---
 
@@ -450,7 +463,42 @@ This project provides the following end-user functionality:
 
 ---
 
-## 18. Notable Technical Observations
+## 18. World Cup Configuration File
+
+Location: `Assets/Resources/WorldCupConfig.json`, `Assets/Scripts/WorldCupConfig.cs`
+
+The game reads a JSON config file to control per-country gameplay parameters instead of using hardcoded values.
+
+### Configurable fields per country
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `index` | int | Country index (0-9) |
+| `displayName` | string | Display name |
+| `goalsToWin` | int | How many goals the player needs to win this match |
+| `startUnlocked` | bool | Whether this country is unlocked when starting a new game |
+| `region` | string | Which region this country belongs to |
+
+### Configurable regions
+
+The `regions` array defines the progression order: completing all countries in one region unlocks the first country of the next region.
+
+### How to modify
+
+Edit `Assets/Resources/WorldCupConfig.json`:
+- Change `goalsToWin` to make a country harder/easier (e.g., `3` means the player must score 3 goals)
+- Change `startUnlocked` to `true` for countries that should be available from the start
+- Reorder or add regions to change the unlock flow
+
+### Key classes
+
+- `WorldCupConfig` (static) — loads JSON from Resources and provides query methods
+- `SoccerGameManager` — reads `WorldCupConfig.GetGoalsToWin()` per country for win condition
+- `ProgressionManager` — reads `startUnlocked` for initial unlocks and `regions` for unlock ordering
+
+---
+
+## 19. Notable Technical Observations
 
 - The project is a **Unity educational mini-game integrated into a larger reusable platform framework**.
 - The quiz system is tightly tied to scoring, which is the game's main educational hook.

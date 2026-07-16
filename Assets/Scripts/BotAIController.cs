@@ -103,6 +103,26 @@ public class BotAIController : MonoBehaviour
     [Tooltip("0 = easy, 1 = hard")]
     public float difficulty = 0.7f;
 
+    [Header("AI — Play Style (set via ApplyStats)")]
+    [Range(0f, 1f)]
+    public float playStyleAggressive = 0.5f;
+    [Range(0f, 1f)]
+    public float playStyleDefensive = 0.3f;
+    [Range(0f, 1f)]
+    public float playStylePossession = 0.4f;
+
+    [Header("AI — Player Pattern Adaptation")]
+    [Tooltip("How many of the player's last shot targets to remember")]
+    public int playerHistorySize = 5;
+    [Tooltip("How much to bias goalie away from player's preferred zone")]
+    [Range(0f, 1f)]
+    public float patternAvoidBias = 0.35f;
+
+    [Header("AI — Dribble")]
+    [Tooltip("How much open space (as fraction of field) bot needs to dribble instead of shoot")]
+    [Range(0f, 1f)]
+    public float dribbleSpaceThreshold = 0.25f;
+
     [Header("AI — Pressure")]
     public int pressureScoreDiff = 1;
     public float pressureSpeedBoost = 1.25f;
@@ -202,6 +222,7 @@ public class BotAIController : MonoBehaviour
     private float _midX;
     private float _goalTopY;
     private float _goalBotY;
+    private float _goalMidY;
 
     // ─────────────────────────────────────────────────────────
     // PRIVATE — misc AI
@@ -211,6 +232,21 @@ public class BotAIController : MonoBehaviour
     private float _fakeShootTimer;
     private float _repositionTimer;        // countdown after kick
     private Vector2 _repositionTarget;
+
+    // ─────────────────────────────────────────────────────────
+    // PRIVATE — player pattern tracking
+    // ─────────────────────────────────────────────────────────
+
+    private float[] _playerShotHistory;
+    private int _playerShotIndex;
+
+    // ─────────────────────────────────────────────────────────
+    // PRIVATE — possession tracking
+    // ─────────────────────────────────────────────────────────
+
+    private bool _playerHadPossession;
+    private float _possessionLostTimer;
+    private const float PossessionFallbackDuration = 0.6f;
 
     // ─────────────────────────────────────────────────────────
     // PROPERTY — superShootReady (logged, preserves match flag)
@@ -277,6 +313,13 @@ public class BotAIController : MonoBehaviour
         _facingRight = _fieldDir < 0f;
         ApplyScale();
         _spawnPos = rb.position;
+
+        _goalMidY = (_goalTopY + _goalBotY) * 0.5f;
+
+        _playerShotHistory = new float[playerHistorySize];
+        for (int i = 0; i < playerHistorySize; i++)
+            _playerShotHistory[i] = _goalMidY;
+        _playerShotIndex = 0;
     }
 
     private void CacheSqrDistances()
@@ -337,6 +380,10 @@ public class BotAIController : MonoBehaviour
         difficulty = stats.difficulty;
         pressureSpeedBoost = stats.pressureSpeedBoost;
 
+        playStyleAggressive = stats.aggressive;
+        playStyleDefensive = stats.defensive;
+        playStylePossession = stats.possession;
+
         var flags = System.Reflection.BindingFlags.NonPublic
                   | System.Reflection.BindingFlags.Instance;
 
@@ -349,7 +396,7 @@ public class BotAIController : MonoBehaviour
         SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
         if (sr != null) sr.color = Color.white;
 
-        Debug.Log($"[BotAI] Stats applied for {stats.countryName} — difficulty={difficulty}");
+        Debug.Log($"[BotAI] Stats applied for {stats.countryName} — difficulty={difficulty} agg={playStyleAggressive} def={playStyleDefensive} poss={playStylePossession}");
     }
 
     public void ForceDecide()
@@ -582,6 +629,42 @@ public class BotAIController : MonoBehaviour
             ? (_ballPos - (Vector2)botGoalZone.position).sqrMagnitude : 0f;
         float effectiveSqr = EffectiveShootSqr();
 
+        // ── Super shoot awareness ────────────────────────────────────────
+        bool playerSuper = SoccerGameManager.Instance != null
+            && SoccerGameManager.Instance.PlayerSuperShootEarned;
+
+        // ── Tactical fallback after losing possession ────────────────────
+        bool playerHasPossession = PlayerHasPossession();
+        if (!_playerHadPossession && playerHasPossession)
+            _possessionLostTimer = PossessionFallbackDuration;
+        _playerHadPossession = playerHasPossession;
+        if (_possessionLostTimer > 0f) _possessionLostTimer -= Time.deltaTime;
+
+        if (playerSuper)
+        {
+            // Player has super shoot: play more defensively
+            if (sqrBallHome < _sqrDefend * 6f)
+            {
+                SetState(BotState.GoalieBlock);
+                return;
+            }
+            if (playerHasPossession)
+            {
+                SetState(BotState.GoalieBlock);
+                return;
+            }
+        }
+
+        // After losing possession: fall back before engaging
+        if (_possessionLostTimer > 0f && !playerHasPossession)
+        {
+            if (sqrBallHome < _sqrDefend * 3f)
+            {
+                SetState(BotState.GoalieBlock);
+                return;
+            }
+        }
+
         // Priority 0: bubble if goal is safe
         if (BubbleIsReachable() && sqrBallHome >= _sqrDefend * 4f)
         {
@@ -604,11 +687,12 @@ public class BotAIController : MonoBehaviour
         }
 
         // Priority 2: player has possession
-        if (PlayerHasPossession())
+        if (playerHasPossession)
         {
-            SetState(IsUnderPressure() && sqrToBall <= effectiveSqr
-                ? BotState.Chase
-                : BotState.GoalieBlock);
+            // More aggressive countries chase sooner
+            bool shouldChase = IsUnderPressure() && sqrToBall <= effectiveSqr;
+            if (!shouldChase) shouldChase = sqrToBall < _sqrDefend * (1f + playStyleAggressive);
+            SetState(shouldChase ? BotState.Chase : BotState.GoalieBlock);
             return;
         }
 
@@ -715,7 +799,46 @@ public class BotAIController : MonoBehaviour
 
         JumpTowardsBall(_ballPos, aerial: true);
 
-        if (_kickCooldown <= 0f && sqrDst <= _sqrKick) TryKick();
+        if (_kickCooldown <= 0f && sqrDst <= _sqrKick && ShouldKickInsteadOfDribble())
+            TryKick();
+    }
+
+    /// <summary>
+    /// Decide whether to shoot or dribble. Dribble when there's open space
+    /// toward the goal and the bot's play style favors possession.
+    /// </summary>
+    private bool ShouldKickInsteadOfDribble()
+    {
+        if (playerGoal == null) return true;
+
+        // Super shoot ready: always shoot
+        if (superShootReady) return true;
+
+        // Player is close: shoot before they tackle
+        if (player != null)
+        {
+            float playerDist = Mathf.Abs(_playerPos.x - _botPos.x);
+            if (playerDist < safeDistance * 2f) return true;
+        }
+
+        // Calculate open space toward the opponent's goal
+        float spaceToGoal = Mathf.Abs(playerGoal.position.x - _ballPos.x);
+        float fieldWidth = Mathf.Abs((playerGoal.position.x - (botGoalZone != null ? botGoalZone.position.x : _homeX)));
+        float spaceRatio = spaceToGoal / Mathf.Max(fieldWidth, 0.01f);
+
+        // Low space = close to goal = shoot
+        if (spaceRatio < 0.15f) return true;
+
+        // High possession style + lots of space = dribble instead
+        if (playStylePossession > 0.4f && spaceRatio > dribbleSpaceThreshold)
+        {
+            // Dribble: don't kick, keep chasing
+            if (verboseLog)
+                Debug.Log($"[BotAI] Dribbling — space={spaceRatio:F2} poss={playStylePossession:F2}");
+            return false;
+        }
+
+        return true;
     }
 
     void ExecDefend()
@@ -741,9 +864,31 @@ public class BotAIController : MonoBehaviour
         Vector2 goalPos = botGoalZone.position;
         float anchorX = goalPos.x + _fieldDir * keeperDepth;
 
-        // High difficulty: track predicted ball; easy: track current ball
-        float trackBlend = Mathf.Lerp(0.55f, 0.88f, difficulty);
-        float trackX = Mathf.Lerp(anchorX, _predictedBallPos.x, trackBlend);
+        bool ballInSuperMode = _ballController != null && _ballController.SuperModeActive;
+
+        // ── Super mode goalie: track ball center, not prediction ─────────
+        float trackBlend;
+        Vector2 trackTarget;
+
+        if (ballInSuperMode)
+        {
+            trackBlend = Mathf.Lerp(0.70f, 0.95f, difficulty);
+            trackTarget = _ballPos;
+        }
+        else
+        {
+            trackBlend = Mathf.Lerp(0.55f, 0.88f, difficulty);
+            trackTarget = _predictedBallPos;
+
+            // ── Player pattern adaptation: bias away from preferred zone ──
+            float playerPrefY = GetPlayerPreferredShotY();
+            float biasDir = playerPrefY > _goalMidY ? -1f : 1f;
+            float biasAmount = (_playerShotIndex > 1 ? patternAvoidBias : 0f)
+                             * Mathf.Lerp(0.5f, 1f, difficulty);
+            trackTarget.y += biasDir * biasAmount * (_goalTopY - _goalBotY) * 0.15f;
+        }
+
+        float trackX = Mathf.Lerp(anchorX, trackTarget.x, trackBlend);
         float maxFwd = goalPos.x + _fieldDir * keeperDepth * 2f;
 
         trackX = _fieldDir > 0f
@@ -757,14 +902,21 @@ public class BotAIController : MonoBehaviour
             && Vector2.Dot(_ballVel.normalized,
                            ((Vector2)botGoalZone.position - _ballPos).normalized) > 0.5f;
 
-        float jumpThreshold = fastIncoming ? 0.2f : (_ballSpd > 3f ? 0.4f : 0.8f);
+        float jumpThreshold;
+        if (ballInSuperMode)
+            jumpThreshold = 0.15f;          // super = jump at anything
+        else if (fastIncoming)
+            jumpThreshold = 0.2f;
+        else
+            jumpThreshold = _ballSpd > 3f ? 0.4f : 0.8f;
 
         if (_isGrounded && _jumpCooldown <= 0f
-            && _predictedBallPos.y > _botPos.y + jumpThreshold)
+            && (trackTarget.y > _botPos.y + jumpThreshold
+                || (ballInSuperMode && trackTarget.y > _botPos.y)))
             _wantsJump = true;
 
         if (!_isGrounded && _jumpsLeft > 0 && _jumpCooldown <= 0f
-            && _predictedBallPos.y > _botPos.y + jumpThreshold)
+            && trackTarget.y > _botPos.y + jumpThreshold)
             _wantsJump = true;
 
         TryKickIfInRange();
@@ -932,6 +1084,30 @@ public class BotAIController : MonoBehaviour
 
         if (verboseLog)
             Debug.Log($"[BotAI] KICK state={_state} vec={kickVec} force={baseForce:F1}");
+    }
+
+    /// <summary>
+    /// Record where the player aimed their last shot (called from TryKick).
+    /// </summary>
+    public void RecordPlayerShot(float shotTargetY)
+    {
+        if (_playerShotHistory == null || _playerShotHistory.Length == 0) return;
+        _playerShotHistory[_playerShotIndex % _playerShotHistory.Length] = shotTargetY;
+        _playerShotIndex++;
+    }
+
+    /// <summary>Returns the player's most common shot zone (average of last N).</summary>
+    private float GetPlayerPreferredShotY()
+    {
+        if (_playerShotHistory == null || _playerShotHistory.Length == 0)
+            return _goalMidY;
+
+        float sum = 0f;
+        int count = Mathf.Min(_playerShotIndex, _playerShotHistory.Length);
+        if (count == 0) return _goalMidY;
+
+        for (int i = 0; i < count; i++) sum += _playerShotHistory[i];
+        return sum / count;
     }
 
     /// <summary>
