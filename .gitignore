@@ -104,3 +104,11 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# WorldCupApi (.NET backend) — exclude build output, but keep project files
+# despite the blanket *.csproj/*.slnx rules above (those target Unity's
+# auto-generated IDE files, not this hand-written API project).
+WorldCupApi/**/bin/
+WorldCupApi/**/obj/
+!WorldCupApi/**/*.csproj
+!WorldCupApi/*.slnx
