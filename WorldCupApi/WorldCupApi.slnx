@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="WorldCupApi.Api/WorldCupApi.Api.csproj" />
+  <Project Path="WorldCupApi.Tests/WorldCupApi.Tests.csproj" />
+</Solution>
