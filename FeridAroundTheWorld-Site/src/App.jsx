@@ -3,10 +3,11 @@ import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import AdminLayout from './components/AdminLayout.jsx'
-import Chatbot from './components/Chatbot.jsx'
+import AIChatWidget from './components/AIChat/AIChatWidget.jsx'
 import Home from './pages/Home.jsx'
 import SignUp from './pages/SignUp.jsx'
 import SignIn from './pages/SignIn.jsx'
+import AIAssistant from './pages/AIAssistant.jsx'
 import NotFound from './pages/NotFound.jsx'
 import AdminDashboard from './pages/admin/AdminDashboard.jsx'
 import ManageQuizzes from './pages/admin/ManageQuizzes.jsx'
@@ -34,6 +35,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/ai-assistant" element={<AIAssistant />} />
 
         <Route
           path="/admin"
@@ -62,7 +64,7 @@ export default function App() {
       </Routes>
 
       {!isAdminRoute && <Footer />}
-      <Chatbot />
+      <AIChatWidget />
     </>
   )
 }

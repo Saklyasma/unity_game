@@ -6,12 +6,21 @@ using MongoDB.Driver;
 using Swashbuckle.AspNetCore.Filters;
 using WorldCupApi.Api.Data;
 using WorldCupApi.Api.Models;
+using WorldCupApi.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers()
     .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
+// Frontend dev server (Vite) runs on a different origin/port than this API. 5173 is vite.config.js's
+// default; 5174 is this workspace's .claude/launch.json convention (offset to avoid clashing with
+// the sibling WorldCup repo's own frontend instance) — allow both.
+const string FrontendCorsPolicy = "FrontendDev";
+builder.Services.AddCors(options =>
+    options.AddPolicy(FrontendCorsPolicy, policy =>
+        policy.WithOrigins("http://localhost:5173", "http://localhost:5174").AllowAnyHeader().AllowAnyMethod()));
 
 // ── MongoDB ──────────────────────────────────────────────────────────────
 // Connection string lives in appsettings.{Environment}.json — never hardcode it.
@@ -45,6 +54,29 @@ builder.Services.AddSingleton<IRepository<BotStats>>(sp =>
     new MongoRepository<BotStats>(sp.GetRequiredService<IMongoDatabase>(), "botStats"));
 
 builder.Services.AddSingleton<IWorldCupDataStore, WorldCupDataStore>();
+
+// ── AI Tutor ─────────────────────────────────────────────────────────────
+// PlayerProfile is keyed by the frontend's externally-supplied playerId (not auto-incremented),
+// so it gets its own small repository instead of the generic IRepository<T>/MongoRepository<T>
+// (whose InsertAsync always assigns a fresh id) — see IPlayerProfileRepository for details.
+builder.Services.AddSingleton<IPlayerProfileRepository>(sp =>
+    new PlayerProfileRepository(sp.GetRequiredService<IMongoDatabase>()));
+builder.Services.AddSingleton<IRepository<ChatMessage>>(sp =>
+    new MongoRepository<ChatMessage>(sp.GetRequiredService<IMongoDatabase>(), "aiChatMessages"));
+builder.Services.AddSingleton<IRepository<QuizAttemptRecord>>(sp =>
+    new MongoRepository<QuizAttemptRecord>(sp.GetRequiredService<IMongoDatabase>(), "aiQuizAttempts"));
+
+builder.Services.Configure<AiTutorSettings>(builder.Configuration.GetSection("AiTutorSettings"));
+builder.Services.AddSingleton<IKnowledgeTracingService, KnowledgeTracingService>();
+builder.Services.AddSingleton<IDifficultyEngine, DifficultyEngine>();
+builder.Services.AddSingleton<IRecommendationEngine, RecommendationEngine>();
+builder.Services.AddSingleton<IAiCoachPromptBuilder, AiCoachPromptBuilder>();
+builder.Services.AddSingleton<IAiTutorOrchestrator, AiTutorOrchestrator>();
+builder.Services.AddHttpClient<IGeminiClient, GeminiClient>(http =>
+{
+    http.BaseAddress = new Uri("https://generativelanguage.googleapis.com/");
+    http.Timeout = TimeSpan.FromSeconds(20);
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -107,6 +139,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(FrontendCorsPolicy);
 
 app.UseAuthorization();
 

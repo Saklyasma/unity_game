@@ -8,15 +8,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <!-- Bumped for compatibility with this machine's installed SDK (10.0.200-preview) — the old
+         17.8.0/2.5.3/2.5.3 versions predate .NET 9/10. -->
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageReference Include="Mongo2Go" Version="4.1.0" />
-    <PackageReference Include="coverlet.collector" Version="6.0.0" />
-    <PackageReference Include="xunit" Version="2.5.3" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+    <PackageReference Include="coverlet.collector" Version="6.0.4" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\WorldCupApi.Api\WorldCupApi.Api.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- None of the test files have an explicit "using Xunit;" — without this global using,
+         [Fact]/[Theory] fail to resolve (CS0246) regardless of package versions. This is the
+         actual root cause of the "Fact/FactAttribute not found" errors. -->
+    <Using Include="Xunit" />
   </ItemGroup>
 
 </Project>

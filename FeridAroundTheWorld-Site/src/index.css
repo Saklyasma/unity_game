@@ -774,3 +774,67 @@ tbody tr:hover {
     padding: 24px 20px;
   }
 }
+
+/* ---------- AI Assistant page ---------- */
+.ai-assistant-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.ai-assistant-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 16px 0 24px;
+}
+
+.ai-assistant-stat {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+}
+
+.ai-assistant-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.ai-assistant-panel,
+.ai-assistant-chat-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+}
+
+.ai-assistant-chat-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  padding: 0;
+}
+
+.ai-assistant-chat-panel .ai-chat-messages {
+  flex: 1;
+}
+
+.ai-assistant-recommendation {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.ai-assistant-reason {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 860px) {
+  .ai-assistant-grid {
+    grid-template-columns: 1fr;
+  }
+}

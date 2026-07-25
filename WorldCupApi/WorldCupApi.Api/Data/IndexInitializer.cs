@@ -53,5 +53,17 @@ public static class IndexInitializer
         await predictions.Indexes.CreateOneAsync(new CreateIndexModel<PredictionResponse>(
             Builders<PredictionResponse>.IndexKeys.Ascending(p => p.MatchId),
             new CreateIndexOptions { Name = "ix_predictions_matchId" }));
+
+        // AI Tutor: fast lookup of a player's chat history, oldest-first (AiChatController.GetHistory).
+        var aiChatMessages = db.GetCollection<ChatMessage>("aiChatMessages");
+        await aiChatMessages.Indexes.CreateOneAsync(new CreateIndexModel<ChatMessage>(
+            Builders<ChatMessage>.IndexKeys.Ascending(m => m.PlayerId).Ascending(m => m.CreatedAtUtc),
+            new CreateIndexOptions { Name = "ix_aiChatMessages_player_createdAt" }));
+
+        // AI Tutor: fast lookup of a player's recent attempts per topic (RecommendationEngine's recency-of-failure scoring).
+        var aiQuizAttempts = db.GetCollection<QuizAttemptRecord>("aiQuizAttempts");
+        await aiQuizAttempts.Indexes.CreateOneAsync(new CreateIndexModel<QuizAttemptRecord>(
+            Builders<QuizAttemptRecord>.IndexKeys.Ascending(a => a.PlayerId).Ascending(a => a.Topic).Descending(a => a.SubmittedAtUtc),
+            new CreateIndexOptions { Name = "ix_aiQuizAttempts_player_topic_submittedAt" }));
     }
 }
